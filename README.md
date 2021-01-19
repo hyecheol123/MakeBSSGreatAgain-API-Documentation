@@ -1,5 +1,10 @@
 # Make BSS Great Again OpenAPI Definition
 
+This repository contains [ReDoc](https://github.com/Redocly/redoc) resources (complying OpenAPI specification) for the RESTful API documentation of **Make BSS Great Again** project.  
+With the project, we are going to build the **alumni website of Busan Science High School**.  
+List of features and API specification are under review.
+
+
 ## Working on your OpenAPI Definition
 
 ### Install
@@ -239,12 +244,3 @@ You'll see extensive usage of `$ref`s in this example to different types of comp
 
 You'll also notice `$ref`s to code samples.
 
-### Code samples
-
-1. Navigate to the `openapi/code_samples` folder.
-2. Navigate to the `<language>` (e.g. PHP) sub-folder.
-3. Navigate to the `path` folder, and add ref to the code sample.
-
-You can add languages by adding new folders at the appropriate path level.
-
-More details inside the `code_samples` folder README.

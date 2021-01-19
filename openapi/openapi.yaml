@@ -1,14 +1,11 @@
 openapi: 3.0.2
 info:
   version: 1.0.0
-  title: Example.com
+  title: Make BSS Great Again (bshs.or.kr)
   termsOfService: 'https://example.com/terms/'
   contact:
-    email: contact@example.com
+    email: hyecheol123@gmail.com
     url: 'http://example.com/contact'
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
     url: 'https://redocly.github.io/openapi-template/logo.png'
   description: >
