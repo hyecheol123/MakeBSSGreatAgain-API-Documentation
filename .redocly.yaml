@@ -5,9 +5,10 @@ lint:
   extends:
     - recommended
   rules:
-    no-unused-components: warning
+    no-unused-components: error
 referenceDocs:
   htmlTemplate: ./docs/index.html
+  noAutoAuth: true
   theme:
     colors:
       primary:
