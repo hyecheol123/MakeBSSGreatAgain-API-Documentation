@@ -1,4 +1,4 @@
-openapi: 3.0.2
+openapi: 3.0.3
 info:
   version: 1.0.0
   title: Make BSS Great Again (bshs.or.kr)
@@ -28,6 +28,9 @@ components:
       scheme: basic
       description: |
         Basic Authentication will be used to **retrieve tokens**.
+
+        For security reasons, the maximum number of trying signin will be limited.
+        If user failed to login 5 consecutive times, the account will be locked.
     accessToken:
       type: http
       scheme: bearer
@@ -40,4 +43,4 @@ components:
       name: X-REFRESH-KEY
       description: |
         Refresh token will be used to **renew expired access token**.
-        If the refresh token also expired, the user need to login again by using basic authentication
+        If the refresh token also expired, the user need to login again by using basic authentication.
