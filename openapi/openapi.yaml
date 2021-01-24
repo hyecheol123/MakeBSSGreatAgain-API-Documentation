@@ -2,6 +2,9 @@ openapi: 3.0.3
 info:
   version: 1.0.0
   title: Make BSS Great Again (bshs.or.kr)
+  license:
+    name: BSD-3-Clause
+    url: https://opensource.org/licenses/BSD-3-Clause
   termsOfService: 'https://bshs.or.kr/terms/'
   contact:
     email: hyecheol123@gmail.com

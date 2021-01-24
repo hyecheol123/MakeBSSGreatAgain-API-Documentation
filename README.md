@@ -23,24 +23,8 @@ Bundles the definition to the dist folder.
 #### `npm test`
 Validates the definition.
 
+
 ## Contribution Guide
-
-Below is a sample contribution guide. The tools
-in the repository don't restrict you to any
-specific structure. Adjust the contribution guide
-to match your own structure. However, if you
-don't have a structure in mind, this is a
-good place to start.
-
-Update this contribution guide if you
-adjust the file/folder organization.
-
-The `.redocly.yaml` controls settings for various
-tools including the lint tool and the reference
-docs engine.  Open it to find examples and
-[read the docs](https://redoc.ly/docs/cli/configuration/)
-for more information.
-
 
 ### Schemas
 
@@ -153,22 +137,47 @@ You will use `$ref`s to reference schema from your path definitions.
 2. Open the file you wish to edit.
 3. Edit.
 
+
 ### Paths
 
 #### Adding a Path
 
-1. Navigate to the `openapi/paths` folder.
-2. Add a new YAML file named like your URL endpoint except replacing `/` with `@` and putting path parameters into curly braces like `{example}`.
-3. Add the path and a ref to it inside of your `openapi.yaml` file inside of the `openapi` folder.
+Individual files in the subdirectories of the `openapi/paths` represent a HTTP request (operation)
 
-Example addition to the `openapi.yaml` file:
-```yaml
-'/customers/{id}':
-  $ref: './paths/customers@{id}.yaml'
+Example:
+```
+GET /customers
+
+/paths/customers/get.yaml
 ```
 
-Here is an example of a YAML file named `customers@{id}.yaml` in the `paths` folder:
+Example with path parameter:
+```
+GET /customers/{id}
 
+/paths/customers/{id}/get.yaml
+```
+
+Conventions for organizing paths:
+* path separator token (e.g. `@`) or subfolders
+* path parameter (e.g. `{example}`)
+
+After you write the path file indicating a specific operation, add the path and a ref to it inside of your `openapi.yaml` file inside of the `openapi` folder.
+
+The `paths` description in the `openapi.yaml` represents the URL structure.  
+Example addition to the `openapi.yaml` file:
+```yaml
+paths:
+  '/customers/{id}':
+    get:
+      $ref: ./paths/customers/{id}/get.yaml
+    put:
+      $ref: ./paths/customers/{id}/put.yaml
+```
+
+Here is an example of a YAML files at `paths/customers/{id}` directory:
+
+`get.yaml`:
 ```yaml
 get:
   tags:
@@ -217,6 +226,10 @@ get:
     - lang: PHP
       source:
         $ref: ../code_samples/PHP/customers/get.php
+```
+
+`post.yaml`:
+```yaml
 post:
   tags:
     - Customers
@@ -244,3 +257,16 @@ You'll see extensive usage of `$ref`s in this example to different types of comp
 
 You'll also notice `$ref`s to code samples.
 
+
+### Reusable Components
+* You can create the following folders in `openapi/components` directory:
+  - `schemas` - reusable [Schema Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#schemaObject)
+  - `responses` - reusable [Response Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#responseObject)
+  - `parameters` - reusable [Parameter Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#parameterObject)
+  - `examples` - reusable [Example Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#exampleObject)
+  - `headers` - reusable [Header Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#headerObject)
+  - `requestBodies` - reusable [Request Body Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#requestBodyObject)
+  - `links` - reusable [Link Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#linkObject)
+  - `callbacks` - reusable [Callback Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#callbackObject)
+  - `securitySchemes` - reusable [Security Scheme Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#securitySchemeObject)
+* Filename of files inside the folders represent component name, e.g. `Customer.yaml`
