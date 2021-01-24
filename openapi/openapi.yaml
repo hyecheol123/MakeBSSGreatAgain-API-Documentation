@@ -8,12 +8,8 @@ info:
     url: 'http://bshs.or.kr/contact'
   x-logo:
     url: 'https://redocly.github.io/openapi-template/logo.png'
-  description: >
-    This is the tentative API specification for **Busan Science High School Alumni Website, *Make BSS Great Again***.
-    Note that this project does not have any official relationship between Busan Science High School.
-    Therefore, if you have any questions/suggestions/complaints, please contact our team with the email or contact information listed above.
-
-    # Get Started
+  description:
+    $ref: description/main.md
 externalDocs:
   description: GitHub repository for this API Documentation.
   url: 'https://github.com/hyecheol123/MakeBSSGreatAgin_API_Documentation'
@@ -23,24 +19,25 @@ tags:
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
-  '/users/{username}':
-    $ref: 'paths/users@{username}.yaml'
   /auth:
     $ref: paths/auth.yaml
 components:
   securitySchemes:
-    main_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'http://example.com/api/oauth/dialog'
-          scopes:
-            'read:users': read users info
-            'write:users': modify or remove users
-    api_key:
-      type: apiKey
-      in: header
-      name: api_key
-    basic_auth:
+    idPassword:
       type: http
       scheme: basic
+      description: |
+        Basic Authentication will be used to **retrieve tokens**.
+    accessToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        Access token will be used to **authenticate/authorize user to use the API**.
+    refreshToken:
+      type: apiKey
+      in: header
+      name: X-REFRESH-KEY
+      description: |
+        Refresh token will be used to **renew expired access token**.
+        If the refresh token also expired, the user need to login again by using basic authentication

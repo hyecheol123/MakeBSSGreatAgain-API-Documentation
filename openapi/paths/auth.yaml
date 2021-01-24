@@ -5,8 +5,7 @@ post:
   description: Receive the exact message you've sent
   operationId: echo
   security:
-    - api_key: []
-    - basic_auth: []
+    - accessToken: []
   responses:
     '200':
       description: OK
