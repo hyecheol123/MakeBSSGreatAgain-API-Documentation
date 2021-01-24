@@ -23,24 +23,8 @@ Bundles the definition to the dist folder.
 #### `npm test`
 Validates the definition.
 
+
 ## Contribution Guide
-
-Below is a sample contribution guide. The tools
-in the repository don't restrict you to any
-specific structure. Adjust the contribution guide
-to match your own structure. However, if you
-don't have a structure in mind, this is a
-good place to start.
-
-Update this contribution guide if you
-adjust the file/folder organization.
-
-The `.redocly.yaml` controls settings for various
-tools including the lint tool and the reference
-docs engine.  Open it to find examples and
-[read the docs](https://redoc.ly/docs/cli/configuration/)
-for more information.
-
 
 ### Schemas
 
@@ -152,6 +136,7 @@ You will use `$ref`s to reference schema from your path definitions.
 1. Navigate to the `openapi/components/schemas` folder.
 2. Open the file you wish to edit.
 3. Edit.
+
 
 ### Paths
 
