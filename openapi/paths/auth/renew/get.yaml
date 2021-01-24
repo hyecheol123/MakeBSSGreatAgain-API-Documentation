@@ -1,0 +1,16 @@
+tags:
+  - Auth
+summary: Renew AccessToken
+operationId: renewAccessToken
+description: | 
+  Renew expired access token using refresh token
+security:
+  - refreshToken: []
+responses:
+  '200':
+    description: Successfully refreshed access token
+    headers:
+      Set-Cookie:
+        $ref: ../../../components/headers/setCookieAccessToken.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml

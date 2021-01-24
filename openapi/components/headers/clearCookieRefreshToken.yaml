@@ -1,0 +1,6 @@
+description: |
+  Clear RefreshToken
+schema:
+  type: string
+  readOnly: true
+  example: "X-REFRESH-TOKEN=;"

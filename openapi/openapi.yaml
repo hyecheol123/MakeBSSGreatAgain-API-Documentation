@@ -22,8 +22,19 @@ tags:
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
-  /auth:
-    $ref: paths/auth.yaml
+  # auth APIs
+  /auth/login:
+    post:
+      $ref: paths/auth/login/post.yaml
+  /auth/logout:
+    delete:
+      $ref: paths/auth/logout/delete.yaml
+  /auth/logout/other-sessions:
+    delete:
+      $ref: paths/auth/logout/other-sessions/delete.yaml
+  /auth/renew:
+    get:
+      $ref: paths/auth/renew/get.yaml
 components:
   securitySchemes:
     idPassword:
@@ -33,17 +44,19 @@ components:
         Basic Authentication will be used to **retrieve tokens**.
 
         For security reasons, the maximum number of trying signin will be limited.
-        If user failed to login 5 consecutive times, the account will be locked.
+        If user failed to login 5 consecutive times, the account will be locked.  
+
+        It requires `Authorization` headers that contains the word `Basic` followed by a space and a base65-encoded string `username:password`.
     accessToken:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+      type: apiKey
+      in: cookie
+      name: X-ACCESS-TOKEN
       description: |
         Access token will be used to **authenticate/authorize user to use the API**.
     refreshToken:
       type: apiKey
-      in: header
-      name: X-REFRESH-KEY
+      in: cookie
+      name: X-REFRESH-TOKEN
       description: |
         Refresh token will be used to **renew expired access token**.
         If the refresh token also expired, the user need to login again by using basic authentication.

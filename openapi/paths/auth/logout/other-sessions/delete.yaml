@@ -1,0 +1,13 @@
+tags:
+  - Auth
+summary: Logout other sessions
+operationId: logoutOtherSessions
+description: | 
+  Logout from all other sessions, except for current session
+security:
+  - refreshToken: []
+responses:
+  '200':
+    description: Successfully logged out from other sessions
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
