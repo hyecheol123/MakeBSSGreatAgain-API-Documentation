@@ -2,12 +2,14 @@
   "name": "make-bss-great-again",
   "version": "1.0.0",
   "dependencies": {
-    "@redocly/openapi-cli": "^1.0.0-beta.29"
+    "@redocly/openapi-cli": "^1.0.0-beta.29",
+    "redoc-cli": "^0.10.2"
   },
   "private": true,
   "scripts": {
     "start": "openapi preview-docs",
-    "build": "openapi bundle -o dist",
+    "build-spec": "openapi bundle -o dist",
+    "build-html": "redoc-cli bundle openapi/openapi.yaml",
     "test": "openapi lint"
   }
 }
