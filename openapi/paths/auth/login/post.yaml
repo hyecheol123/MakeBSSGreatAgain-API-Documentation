@@ -1,0 +1,18 @@
+tags:
+  - Auth
+summary: Login
+operationId: login
+description: | 
+  Login with username and password to retrieve access/refresh tokens
+security:
+  - idPassword: []
+responses:
+  '200':
+    description: Successfully signed in
+    headers:
+      Set-Cookie:
+        $ref: ../../../components/headers/setCookieAccessToken.yaml
+      "\0Set-Cookie":
+        $ref: ../../../components/headers/setCookieRefreshToken.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml

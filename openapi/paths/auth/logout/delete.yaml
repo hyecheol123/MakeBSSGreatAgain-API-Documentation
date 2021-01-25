@@ -1,0 +1,18 @@
+tags:
+  - Auth
+summary: Logout current session
+operationId: logout
+description: | 
+  Logout from current session
+security:
+  - refreshToken: []
+responses:
+  '200':
+    description: Successfully logged out
+    headers:
+      Set-Cookie:
+        $ref: ../../../components/headers/clearCookieAccessToken.yaml
+      "\0Set-Cookie":
+        $ref: ../../../components/headers/clearCookieRefreshToken.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml

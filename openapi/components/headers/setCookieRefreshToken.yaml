@@ -1,0 +1,6 @@
+description: |
+  Set RefreshToken
+schema:
+  type: string
+  readOnly: true
+  example: "X-REFRESH-TOKEN=abcdef1234; Domain=bshs.or.kr; Path=/api/v1/auth; Secure; HttpOnly; SameSite=Strict; Expires=<Expire Date>"

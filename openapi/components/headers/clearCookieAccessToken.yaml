@@ -1,0 +1,6 @@
+description: |
+  Clear AccessToken
+schema:
+  type: string
+  readOnly: true
+  example: "X-ACCESS-TOKEN=;"

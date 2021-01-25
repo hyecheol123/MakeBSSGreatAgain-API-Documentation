@@ -1,19 +1,18 @@
-openapi: 3.0.2
+openapi: 3.0.3
 info:
   version: 1.0.0
   title: Make BSS Great Again (bshs.or.kr)
+  license:
+    name: BSD-3-Clause
+    url: https://opensource.org/licenses/BSD-3-Clause
   termsOfService: 'https://bshs.or.kr/terms/'
   contact:
     email: hyecheol123@gmail.com
     url: 'http://bshs.or.kr/contact'
   x-logo:
     url: 'https://redocly.github.io/openapi-template/logo.png'
-  description: >
-    This is the tentative API specification for **Busan Science High School Alumni Website, *Make BSS Great Again***.
-    Note that this project does not have any official relationship between Busan Science High School.
-    Therefore, if you have any questions/suggestions/complaints, please contact our team with the email or contact information listed above.
-
-    # Get Started
+  description:
+    $ref: description/main.md
 externalDocs:
   description: GitHub repository for this API Documentation.
   url: 'https://github.com/hyecheol123/MakeBSSGreatAgin_API_Documentation'
@@ -23,24 +22,41 @@ tags:
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
-  '/users/{username}':
-    $ref: 'paths/users@{username}.yaml'
-  /auth:
-    $ref: paths/auth.yaml
+  # auth APIs
+  /auth/login:
+    post:
+      $ref: paths/auth/login/post.yaml
+  /auth/logout:
+    delete:
+      $ref: paths/auth/logout/delete.yaml
+  /auth/logout/other-sessions:
+    delete:
+      $ref: paths/auth/logout/other-sessions/delete.yaml
+  /auth/renew:
+    get:
+      $ref: paths/auth/renew/get.yaml
 components:
   securitySchemes:
-    main_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'http://example.com/api/oauth/dialog'
-          scopes:
-            'read:users': read users info
-            'write:users': modify or remove users
-    api_key:
-      type: apiKey
-      in: header
-      name: api_key
-    basic_auth:
+    idPassword:
       type: http
       scheme: basic
+      description: |
+        Basic Authentication will be used to **retrieve tokens**.
+
+        For security reasons, the maximum number of trying signin will be limited.
+        If user failed to login 5 consecutive times, the account will be locked.  
+
+        It requires `Authorization` headers that contains the word `Basic` followed by a space and a base65-encoded string `username:password`.
+    accessToken:
+      type: apiKey
+      in: cookie
+      name: X-ACCESS-TOKEN
+      description: |
+        Access token will be used to **authenticate/authorize user to use the API**.
+    refreshToken:
+      type: apiKey
+      in: cookie
+      name: X-REFRESH-TOKEN
+      description: |
+        Refresh token will be used to **renew expired access token**.
+        If the refresh token also expired, the user need to login again by using basic authentication.
