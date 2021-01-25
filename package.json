@@ -9,7 +9,7 @@
   "scripts": {
     "start": "openapi preview-docs",
     "build-spec": "openapi bundle -o dist",
-    "build-html": "redoc-cli bundle openapi/openapi.yaml",
+    "build-html": "redoc-cli bundle openapi/openapi.yaml -o gh-pages/redoc-static.html -t docs/index.html && cp --verbose docs/favicon.png gh-pages/favicon.png",
     "test": "openapi lint"
   }
 }
