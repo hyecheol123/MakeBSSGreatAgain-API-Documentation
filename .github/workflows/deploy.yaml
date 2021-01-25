@@ -46,6 +46,7 @@ jobs:
   # This workflow contains a job to build HTML documents and deploy it with GitHub Pages
   gh-pages:
     if: github.event.commits[0]['author']['name'] != 'github-actions'
+    needs: test
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
@@ -53,6 +54,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.ADMIN_TOKEN }}
       
       # Install Node.JS
       - name: Setup Node.js
@@ -75,8 +78,8 @@ jobs:
       # Commit
       - name: Deploy gh-pages
         run: |
-          git config user.email github-actions@github.com
-          git config user.name github-actions
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions"
           git add gh-pages/*
           git commit -m "GitHub Pages Created"
           git push
