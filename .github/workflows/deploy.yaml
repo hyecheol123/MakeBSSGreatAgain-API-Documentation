@@ -76,11 +76,11 @@ jobs:
           CI: true
       
       # Commit
-      - name: Deploy gh-pages
+      - name: Deploy the HTML documents
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions"
-          git add gh-pages/*
+          git add docs/*
           git commit -m "GitHub Pages Created"
           git push
         env:

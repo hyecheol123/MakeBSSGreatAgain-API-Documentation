@@ -17,8 +17,11 @@ List of features and API specification are under review.
 #### `npm start`
 Starts the reference docs preview server.
 
-#### `npm run build`
-Bundles the definition to the dist folder.
+#### `npm run build-spec`
+Bundles the definition as `dist.yaml`.
+
+#### `npm run build-html`
+Create zero-dependency HTML documents to `docs/` directory.
 
 #### `npm test`
 Validates the definition.
