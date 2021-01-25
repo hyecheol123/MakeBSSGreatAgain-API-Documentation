@@ -1,12 +1,12 @@
 # This is a GitHub Action workflow to test whether the entire repository complies the OpenAPI3 Specification or not
-## Only for Push
+## Only for Pull Requests
 
-name: test-pull
+name: test
 
 # Controls when the action will run. 
 on:
   # Triggers the workflow on pull request events but only for the master branch
-  push:
+  pull_request:
     branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -16,7 +16,6 @@ on:
 jobs:
   # This workflow contains a single job called "test"
   test:
-    if: github.event.push.commits[0][author][name] != 'github-actions'
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
