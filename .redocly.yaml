@@ -18,7 +18,7 @@ lint:
       disallowAdditionalProperties: true
     no-server-example.com: error
 referenceDocs:
-  htmlTemplate: ./docs/index.html
+  htmlTemplate: ./template/index.html
   noAutoAuth: true
   theme:
     colors:
