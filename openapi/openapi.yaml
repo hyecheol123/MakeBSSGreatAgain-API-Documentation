@@ -46,7 +46,7 @@ components:
         For security reasons, the maximum number of trying signin will be limited.
         If user failed to login 5 consecutive times, the account will be locked.  
 
-        It requires `Authorization` headers that contains the word `Basic` followed by a space and a base65-encoded string `username:password`.
+        It requires `Authorization` headers that contains the word `Basic` followed by a space and a base64-encoded string `username:password`.
     accessToken:
       type: apiKey
       in: cookie
