@@ -19,6 +19,8 @@ externalDocs:
 tags:
   - name: Auth
     description: Authorization/Authentication operations
+  - name: User
+    description: User account related operations
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
@@ -35,6 +37,10 @@ paths:
   /auth/renew:
     get:
       $ref: paths/auth/renew/get.yaml
+  # user APIs
+  /user/username:
+    get:
+      $ref: paths/user/username/get.yaml
 components:
   securitySchemes:
     idPassword:
