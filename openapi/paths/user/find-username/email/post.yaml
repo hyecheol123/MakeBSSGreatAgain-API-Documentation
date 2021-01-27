@@ -3,7 +3,7 @@ tags:
 summary: Send username to email
 operationId: sendUsernameEmail
 description: |
-  Find and send username by using email, name, admission year, and search result of find-username API.
+  Find and send username by using email, name, admission year, and search result of [find-username API](/#operation/findUsername).
 
   If the user with matching information found, the email containing username will send.
 requestBody:

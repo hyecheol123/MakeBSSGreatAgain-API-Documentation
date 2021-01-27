@@ -44,6 +44,9 @@ paths:
   /user/find-username/email:
     post:
       $ref: paths/user/find-username/email/post.yaml
+  /user/password-reset-ticket:
+    post:
+      $ref: paths/user/password-reset-ticket/post.yaml
 components:
   securitySchemes:
     idPassword:

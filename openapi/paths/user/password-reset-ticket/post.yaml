@@ -1,0 +1,19 @@
+tags:
+  - User
+summary: Send password reset link
+operationId: sendPasswordResetLink
+description: |
+  Send password reset link to user's email having matching name, username, email, and admission year information.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../components/schemas/passwordResetRequestForm.yaml
+responses:
+  '201':
+    description: Password reset link has been successfully requested
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '404':
+    description: Cannot find user with provided information
