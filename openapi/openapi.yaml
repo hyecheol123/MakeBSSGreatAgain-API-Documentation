@@ -38,9 +38,12 @@ paths:
     get:
       $ref: paths/auth/renew/get.yaml
   # user APIs
-  /user/username:
+  /user/find-username:
     get:
-      $ref: paths/user/username/get.yaml
+      $ref: paths/user/find-username/get.yaml
+  /user/find-username/email:
+    post:
+      $ref: paths/user/find-username/email/post.yaml
 components:
   securitySchemes:
     idPassword:
