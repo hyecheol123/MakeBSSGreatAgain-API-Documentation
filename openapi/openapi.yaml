@@ -44,8 +44,9 @@ paths:
   /user/verify-email:
     post: # Create verification ticket
       $ref: paths/user/verify-email/post.yaml
-  # /user/verify-email/{verifyTicket}:
-  #   put: # Verify Email
+  /user/verify-email/{ticketID}:
+    put: # Verify Email
+      $ref: paths/user/verify-email/{ticketID}/put.yaml
   /user/find-username:
     get:
       $ref: paths/user/find-username/get.yaml
