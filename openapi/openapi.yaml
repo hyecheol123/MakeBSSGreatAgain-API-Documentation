@@ -41,13 +41,13 @@ paths:
   /user/find-username:
     get:
       $ref: paths/user/find-username/get.yaml
-  /user/find-username/email:
+  /user/find-username/email: # Send username to user's email
     post:
       $ref: paths/user/find-username/email/post.yaml
-  /user/password-reset:
+  /user/password-reset: # Send password reset ticket/link to user's email
     post:
       $ref: paths/user/password-reset/post.yaml
-  /user/password-reset/{ticketID}:
+  /user/password-reset/{ticketID}: # Use password reset ticket to reset the password
     put:
       $ref: paths/user/password-reset/{ticketID}/put.yaml
 components:
