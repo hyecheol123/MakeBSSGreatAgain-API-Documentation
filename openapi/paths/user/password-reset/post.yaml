@@ -3,7 +3,7 @@ tags:
 summary: Send password reset link
 operationId: sendPasswordResetLink
 description: |
-  Send password reset link to user's email having matching name, username, email, and admission year information.
+  Send password reset link (ticketID) to user's email having matching name, username, email, and admission year information.
 requestBody:
   required: true
   content:
