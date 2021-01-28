@@ -38,17 +38,20 @@ paths:
     get:
       $ref: paths/auth/renew/get.yaml
   # user APIs
+  /user:
+    post: # New user
+      $ref: paths/user/post.yaml
   /user/find-username:
     get:
       $ref: paths/user/find-username/get.yaml
-  /user/find-username/email: # Send username to user's email
-    post:
+  /user/find-username/email:
+    post: # Send username to user's email
       $ref: paths/user/find-username/email/post.yaml
-  /user/password-reset: # Send password reset ticket/link to user's email
-    post:
+  /user/password-reset:
+    post: # Send password reset ticket/link to user's email
       $ref: paths/user/password-reset/post.yaml
-  /user/password-reset/{ticketID}: # Use password reset ticket to reset the password
-    put:
+  /user/password-reset/{ticketID}:
+    put: # Use password reset ticket to reset the password
       $ref: paths/user/password-reset/{ticketID}/put.yaml
 components:
   securitySchemes:
