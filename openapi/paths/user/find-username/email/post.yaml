@@ -1,0 +1,21 @@
+tags:
+  - User
+summary: Send username to email
+operationId: sendUsernameEmail
+description: |
+  Find and send username by using email, name, admission year, and search result of [find-username API](/#operation/findUsername).
+
+  If the user with matching information found, the email containing username will send.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../../components/schemas/usernameEmailForm.yaml
+responses:
+  '201':
+    description: Username email successfully requested
+  '400':
+    $ref: ../../../../components/responses/missingField.yaml
+  '404':
+    description: Cannot find user with provided information

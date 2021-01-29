@@ -1,0 +1,23 @@
+type: object
+properties:
+  name:
+    type: string
+  email:
+    type: string
+    format: email
+  admissionYear:
+    type: integer
+    format: int32
+    minimum: 2002
+  maskedUsername:
+    type: string
+required:
+- name
+- email
+- admissionYear
+- maskedUsername
+example:
+  name: 홍길동
+  email: gildong.hong@example.com
+  admissionYear: 2015
+  maskedUsername: gil*****23

@@ -19,6 +19,8 @@ externalDocs:
 tags:
   - name: Auth
     description: Authorization/Authentication operations
+  - name: User
+    description: User account related operations
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
@@ -35,6 +37,28 @@ paths:
   /auth/renew:
     get:
       $ref: paths/auth/renew/get.yaml
+  # user APIs
+  /user:
+    post: # New user
+      $ref: paths/user/post.yaml
+  /user/verify-email:
+    post: # Create verification ticket
+      $ref: paths/user/verify-email/post.yaml
+  /user/verify-email/{ticketID}:
+    put: # Verify Email
+      $ref: paths/user/verify-email/{ticketID}/put.yaml
+  /user/find-username:
+    get:
+      $ref: paths/user/find-username/get.yaml
+  /user/find-username/email:
+    post: # Send username to user's email
+      $ref: paths/user/find-username/email/post.yaml
+  /user/password-reset:
+    post: # Send password reset ticket/link to user's email
+      $ref: paths/user/password-reset/post.yaml
+  /user/password-reset/{ticketID}:
+    put: # Use password reset ticket to reset the password
+      $ref: paths/user/password-reset/{ticketID}/put.yaml
 components:
   securitySchemes:
     idPassword:

@@ -1,0 +1,27 @@
+tags:
+  - User
+summary: Send email verify link
+operationId: sendEmailVerifyTicket
+description: |
+  Issue verification ticket and send it to the email in order to verify email of newly created user and changed email of existing user.
+  Used to get new verification ticket as after calling [new account creation API](#operation/newUser) and [user information update API]() 
+  will trigger verification process automatically and send the verification ticket to the provided email.
+
+  Need email address to be verified
+security:
+  - accessToken: []
+requestBody:
+  required: true
+  content:
+    appication/json:
+      schema:
+        $ref: ../../../components/schemas/email.yaml
+responses:
+  '201':
+    description: New verification ticket created and sent to the email
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
+  '404':
+    description: Provided email does not exist in the user's profile

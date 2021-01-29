@@ -1,0 +1,19 @@
+type: object
+properties:
+  name:
+    type: string
+  email:
+    type: string
+    format: email
+  admissionYear:
+    type: integer
+    format: int32
+    minimum: 2002
+required:
+- name
+- email
+- admissionYear
+example:
+  name: 홍길동
+  email: gildong.hong@example.com
+  admissionYear: 2015

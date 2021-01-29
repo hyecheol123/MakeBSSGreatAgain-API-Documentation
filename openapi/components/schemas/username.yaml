@@ -1,0 +1,8 @@
+type: object
+properties:
+  username:
+    type: string
+required:
+- username
+example:
+  username: "gildong123"

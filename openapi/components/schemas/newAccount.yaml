@@ -1,0 +1,36 @@
+type: object
+properties:
+  username:
+    type: string
+  password:
+    type: string
+  admissionYear:
+    type: integer
+    format: int32
+    minimum: 2002
+  name-korean:
+    type: string
+  name-english:
+    type: string
+  email:
+    type: string
+    format: email
+  phoneNumber:
+    $ref: phoneNumber.yaml
+required:
+  - username
+  - password
+  - admissionYear
+  - name-korean
+  - name-english
+  - email
+example:
+  username: gildong123
+  password: thisispassword
+  admissionYear: 2015
+  name-korean: 홍길동
+  name-english: "Gildong Hong"
+  email: gildong.hong@example.com
+  phoneNumber:
+    countryCode: 82
+    number: 1012345678
