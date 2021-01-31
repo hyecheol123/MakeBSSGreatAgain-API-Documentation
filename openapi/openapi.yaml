@@ -21,6 +21,8 @@ tags:
     description: Authorization/Authentication operations
   - name: User
     description: User account related operations
+  - name: Board
+    description: Writing/Posting operations
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
@@ -59,6 +61,19 @@ paths:
   /user/password-reset/{ticketID}:
     put: # Use password reset ticket to reset the password
       $ref: paths/user/password-reset/{ticketID}/put.yaml
+  # board APIs
+  /board:
+    post: # make new post and write
+      $ref: paths/board/post.yaml
+  /board/additional/hide:
+    hide: # hide a post
+      $ref: paths/board/additional/hide.yaml
+  /board/additional/report/:
+    report: # report a post
+      $ref: paths/board/additional/report.yaml
+  /board/content/delete:
+    delete: # delete a post
+      $ref: paths/board/content/delete.yaml
 components:
   securitySchemes:
     idPassword:
