@@ -1,0 +1,26 @@
+tags:
+  - User
+summary: Create new user
+operationId: newUser
+description: |
+  Create a new user account.
+
+  Need username and password to access the account, admission year, name in both Korean and English, and email.
+  
+  User can also provide mobile phone number.
+  Email will be verified after the creation of the account, while the phone number will not be verified.
+requestBody:
+  required: true
+  content:
+    appication/json:
+      schema:
+        $ref: ../../components/schemas/newAccount.yaml
+responses:
+  '200':
+    description: New User Created
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/username.yaml
+  '400':
+    $ref: ../../components/responses/missingField.yaml

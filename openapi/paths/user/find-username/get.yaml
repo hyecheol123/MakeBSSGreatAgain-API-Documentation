@@ -1,0 +1,30 @@
+tags:
+  - User
+summary: Find username
+operationId: findUsername
+description: |
+  Find username by using email, name, and admission year.
+
+  If the user with matching information found, the part of the username (first three and last two characters) will be returned.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../components/schemas/usernameSearchForm.yaml
+responses:
+  '200':
+    description: Found user with give information
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/username.yaml
+        examples:
+          gildong123:
+            summary: Account having username `gildong123`
+            value:
+              username: gil*****23
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '404':
+    description: Cannot find user with provided information
