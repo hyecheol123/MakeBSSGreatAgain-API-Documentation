@@ -68,13 +68,11 @@ paths:
   /board/additional:
     delete: # hide a post
       $ref: paths/board/additional/delete.yaml
-  /board/additional:
     put: # report a post
       $ref: paths/board/additional/put.yaml
   /board/content:
     delete: # delete a post
       $ref: paths/board/content/delete.yaml
-  /board/content:
     put: # revise a post
       $ref: paths/board/content/put.yaml
   /board/reaction:
