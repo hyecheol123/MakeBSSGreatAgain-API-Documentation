@@ -1,21 +1,11 @@
-type: object
-properties:
-  name:
-    type: string
-  email:
-    type: string
-    format: email
-  admissionYear:
-    type: integer
-    format: int32
-    minimum: 2002
-  maskedUsername:
-    type: string
-required:
-- name
-- email
-- admissionYear
-- maskedUsername
+allOf:
+  - $ref: usernameSearchForm.yaml
+  - type: object
+    properties:
+      maskedUsername:
+        type: string
+    required:
+    - maskedUsername
 example:
   name: 홍길동
   email: gildong.hong@example.com

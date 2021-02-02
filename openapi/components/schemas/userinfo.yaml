@@ -1,14 +1,20 @@
 allOf:
-  - $ref: userinfo.yaml
+  - $ref: username.yaml
+  - $ref: email.yaml
+  - $ref: admissionYear.yaml
   - type: object
     properties:
-      password:
+      name-korean:
         type: string
-    required:
-      - password
+      name-english:
+        type: string
+      phoneNumber:
+        $ref: phoneNumber.yaml
+required:
+  - name-korean
+  - name-english
 example:
   username: gildong123
-  password: thisispassword
   admissionYear: 2015
   name-korean: 홍길동
   name-english: "Gildong Hong"

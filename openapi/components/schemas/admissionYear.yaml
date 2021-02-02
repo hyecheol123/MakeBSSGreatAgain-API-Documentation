@@ -1,0 +1,10 @@
+type: object
+properties:
+  admissionYear:
+    type: integer
+    format: int32
+    minimum: 2002
+required:
+- admissionYear
+example:
+  admissionYear: 2015
