@@ -41,6 +41,9 @@ paths:
   /user:
     post: # New user
       $ref: paths/user/post.yaml
+  /user/{username}:
+    get: # Retrieve user information
+      $ref: paths/user/{username}/get.yaml
   /user/verify-email:
     post: # Create verification ticket
       $ref: paths/user/verify-email/post.yaml

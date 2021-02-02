@@ -21,7 +21,7 @@ responses:
           $ref: ../../../components/schemas/username.yaml
         examples:
           gildong123:
-            summary: Account having username `gildong123`
+            summary: gildong123
             value:
               username: gil*****23
   '400':
