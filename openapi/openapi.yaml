@@ -59,6 +59,40 @@ paths:
   /user/password-reset/{ticketID}:
     put: # Use password reset ticket to reset the password
       $ref: paths/user/password-reset/{ticketID}/put.yaml
+  #comment APIs
+  /comment/create:
+    post:  # New comment
+      $ref: comment/create/create.yaml
+  /comment/erase:
+    delete: # Delete comment
+      $ref: comment/erase/delete.yaml
+  /comment/fixed:
+    patch: # Update comment
+      $ref: comment/fixed/update.yaml
+  /comment/declaration:
+    patch: # Update comment declaration count
+      $ref: comment/declaration/declaration-update.yaml
+  /comment/declaration/admin:
+    post: # post declaration info. to admin
+      $ref: comment/declaration/admin/post.yaml
+  /comment/re-comment/create:
+    post: # New re-comment
+      $ref: comment/re-comment/create/create.yaml
+  /comment/re-comment/erase:
+    delete: # Delete re-comment
+      $ref: comment/re-comment/erase/delete.yaml
+  /comment/re-comment/fixed:
+    patch: # Update re-comment
+      $ref: comment/re-comment/fixed/update.yaml
+  /comment/re-comment/declaration:
+    patch: # Update comment declaration count
+      $ref: comment/re-comment/declaration/declaration-update.yaml
+  /comment/re-comment/declaration/admin:
+    post: # post declaration info. to admin
+      $ref: comment/re-comment/declaration/admin/post.yaml
+  /comment/notification:
+    post: # Send email to parent's post writer
+      $ref: comment/notification/email/post.yaml
 components:
   securitySchemes:
     idPassword:
@@ -68,7 +102,7 @@ components:
         Basic Authentication will be used to **retrieve tokens**.
 
         For security reasons, the maximum number of trying signin will be limited.
-        If user failed to login 5 consecutive times, the account will be locked.  
+        If user failed to login 5 consecutive times, the account will be locked.
 
         It requires `Authorization` headers that contains the word `Basic` followed by a space and a base64-encoded string `username:password`.
     accessToken:
