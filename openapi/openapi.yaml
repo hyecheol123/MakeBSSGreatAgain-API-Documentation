@@ -68,18 +68,15 @@ paths:
   /board:
     post: # make new post and write
       $ref: paths/board/post.yaml
-  /board/additional:
-    delete: # hide a post
-      $ref: paths/board/additional/delete.yaml
-    put: # report a post
-      $ref: paths/board/additional/put.yaml
-  /board/content:
+  /board/{postID}:
     delete: # delete a post
       $ref: paths/board/content/delete.yaml
     put: # revise a post
       $ref: paths/board/content/put.yaml
-  /board/reaction:
-    put: # press the like button
+    get: # Retrieve a post
+      $ref: # TODO
+  /board/like:
+    post: # press the like button
       $ref: paths/board/reaction/put.yaml
   /board/search:
     get: # search the posts
