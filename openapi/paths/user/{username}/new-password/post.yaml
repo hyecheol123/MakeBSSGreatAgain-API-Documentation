@@ -20,6 +20,8 @@ requestBody:
 responses:
   '201':
     description: Password Changed
+  '400':
+    $ref: ../../../../components/responses/missingField.yaml
   '401':
     $ref: ../../../../components/responses/unauthorized.yaml
   '404':

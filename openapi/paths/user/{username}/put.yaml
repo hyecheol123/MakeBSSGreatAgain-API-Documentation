@@ -30,6 +30,8 @@ responses:
       application/json:
         schema:
           $ref: ../../../components/schemas/userinfo.yaml
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
   '401':
     $ref: ../../../components/responses/unauthorized.yaml
   '404':
