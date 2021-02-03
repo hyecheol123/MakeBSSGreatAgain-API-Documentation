@@ -1,2 +1,17 @@
 tags:
   - Post
+summary: Write a new post
+operationId: wrtie
+description: | 
+  Write a new post on board. Logined user only
+security:
+  - idPassword: []
+responses:
+  '200':
+    description: New Post Created
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/newpost.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml

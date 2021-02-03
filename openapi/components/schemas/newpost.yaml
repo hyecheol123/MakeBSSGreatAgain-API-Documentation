@@ -1,0 +1,9 @@
+type: object
+properties:
+  newpost:
+    type: string
+required:
+  - post names
+example:
+  post: "name123"
+
