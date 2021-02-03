@@ -1,0 +1,15 @@
+type: object
+properties:
+  name-english:
+    type: string
+  phoneNumber:
+    $ref: phoneNumber.yaml
+  newEmail:
+    type: string
+    format: email
+example:
+  name-english: "Gildong Hong"
+  newEmail: gildong.hong.new@example.com
+  phoneNumber:
+    countryCode: 82
+    number: 1012345678
