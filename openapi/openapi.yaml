@@ -62,25 +62,21 @@ paths:
   /user/password-reset/{ticketID}:
     put: # Use password reset ticket to reset the password
       $ref: paths/user/password-reset/{ticketID}/put.yaml
-    #comment APIs
-    /comment:
-      post:  # New comment
-        $ref: comment/post.yaml
-    /comment/{comment-pk}:
-      get:
-        $ref: /comment/{comment-pk}/get.yaml
-    /comment/{comment-pk}/erase:
-      delete: # Delete comment
-        $ref: comment/{comment-pk}/erase/delete.yaml
-    /comment/{comment-pk}/fixed:
-      patch: # Update comment
-        $ref: comment/{comment-pk}/fixed/update.yaml
-    /comment/declaration:
-      put: # Update comment declaration count to user
-        $ref: comment/declaration/declaration-update.yaml
-    /comment/declaration/admin:
-      post: # post declaration info. to admin
-        $ref: comment/declaration/admin/post.yaml
+  # comment APIs
+  /comment:
+    post:  # New comment
+      $ref: comment/post.yaml
+  # TODO: Need API to retrieve multiple comments w.r.t. postID
+  /comment/{commentID}:
+    get: # Retrieve single comment
+      $ref: /comment/{comment-pk}/get.yaml
+    delete: # Delete single comment
+      $ref: comment/{comment-pk}/erase/delete.yaml
+    put: # Update single comment
+      $ref: comment/{comment-pk}/fixed/update.yaml
+  /comment/{commentID}/report:
+    post: # Report comment
+      $ref: comment/declaration/declaration-update.yaml
 components:
   securitySchemes:
     idPassword:
