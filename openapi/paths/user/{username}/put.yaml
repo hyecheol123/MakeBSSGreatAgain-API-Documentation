@@ -4,7 +4,7 @@ summary: Update user detail
 operationId: updateUserDetail
 description: |
   Modify user's information.
-  Only the owner of the account can use this API.  
+  Only the owner of the account can use this API.
 
   This API requires username (provided as path parameter).
   In the RequestBody, the contents to be modified are listed.
