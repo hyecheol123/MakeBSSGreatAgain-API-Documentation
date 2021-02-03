@@ -1,0 +1,46 @@
+tags:
+  - User
+summary: Retrieve user detail
+operationId: getUserDetail
+description: |
+  Retrieve user's information.  
+
+  Returns user's public information if the other user try to retrieve the information.
+  If owner of the account try to retrieve the information, the private/public information associated with the user account will be returned.
+
+  This API requires username (provided as path parameter).
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../components/parameters/username.yaml
+responses:
+  '200':
+    description: Found user information with given username
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/userinfo.yaml
+        examples:
+          "owner of account":
+            summary: Owner of account
+            value:
+              username: gildong123
+              admissionYear: 2015
+              name-korean: 홍길동
+              name-english: "Gildong Hong"
+              email: gildong.hong@example.com
+              phoneNumber:
+                countryCode: 82
+                number: 1012345678
+          "others":
+            summary: Others
+            value:
+              username: gildong123
+              admissionYear: 2015
+              name-korean: 홍길동
+              name-english: "Gildong Hong"
+              email: gildong.hong@example.com
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the username

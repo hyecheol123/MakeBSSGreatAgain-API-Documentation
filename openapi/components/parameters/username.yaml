@@ -1,0 +1,6 @@
+name: username
+in: path
+description: Username indicating user account. Same as user's login ID.
+required: true
+schema:
+  type: string
