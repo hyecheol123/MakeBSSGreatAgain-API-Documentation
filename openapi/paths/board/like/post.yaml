@@ -1,2 +1,16 @@
 tags:
   - Post
+summary: Press like button 
+operationId: LikeButton
+description: |
+
+
+security:
+  - accessToken: []
+responses:
+  '201':
+    description: Successfullly pressed like button
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
