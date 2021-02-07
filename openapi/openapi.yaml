@@ -66,20 +66,20 @@ paths:
       $ref: paths/user/password-reset/{ticketID}/put.yaml
   # board APIs
   /board:
-    post: # make new post and write
+    post: # Make new post and write
       $ref: paths/board/post.yaml
   /board/{postID}:
-    delete: # delete a post
+    delete: # Delete a post
       $ref: paths/board/content/delete.yaml
-    put: # revise a post
+    put: # Revise a post
       $ref: paths/board/content/put.yaml
     get: # Retrieve a post
       $ref: # TODO
   /board/like:
-    post: # press the like button
+    post: # Press the like button
       $ref: paths/board/reaction/put.yaml
   /board/search:
-    get: # search the posts
+    get: # Search the posts
       $ref: paths/board/search/get.yaml
 components:
   securitySchemes:
