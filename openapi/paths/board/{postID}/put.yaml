@@ -1,1 +1,19 @@
-revise a post
+tags:
+  - Board
+summary: Revise the Post
+operationId: revise the Post.
+description: |
+  Revise the post.
+requestBody:
+  required: true
+  content:
+    appication/json:
+      schema:
+        $ref: ../../../../components/schemas/postReviseForm.yaml
+responses:
+  '201':
+    description: Post successfully revised
+  '400':
+    $ref: ../../../../components/responses/missingField.yaml
+  '404':
+    description: Cannot find user or password reset ticket with given information

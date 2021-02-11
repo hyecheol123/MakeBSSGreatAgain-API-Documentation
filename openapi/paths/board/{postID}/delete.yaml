@@ -1,1 +1,13 @@
-delete a post
+tags:
+  - Board
+summary: Delete post
+operationId: deletePost
+description: | 
+  Delete the post. Verified users can only.
+security:
+  - accessToken: []
+responses:
+  '200':
+    description: Successfully deleted the post
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
