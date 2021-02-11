@@ -1,1 +1,23 @@
-retrieve a post
+tags:
+  - Board
+summary: Find post
+operationId: findPost
+description: |
+  Find post by post name or post contents
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../components/schemas/postSearchForm.yaml
+responses:
+  '200':
+    description: Found post with give information
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/newpost.yaml
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '404':
+    description: Cannot find post with provided information
