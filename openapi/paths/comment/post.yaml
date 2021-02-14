@@ -1,0 +1,17 @@
+tags:
+  - Post
+summary: Write a new comment
+operationId: write
+description: |
+  Write a new comment on post. Logined user only
+security:
+  - idPassword: []
+responses:
+  '200':
+    description: New Comment Created
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/newComment.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
