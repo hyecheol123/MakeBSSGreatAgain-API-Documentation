@@ -77,7 +77,7 @@ paths:
       $ref: paths/board/content/get.yaml
   /board/like:
     post: # Press the like button
-      $ref: paths/board/reaction/put.yaml
+      $ref: paths/board/like/put.yaml
 components:
   securitySchemes:
     idPassword:
