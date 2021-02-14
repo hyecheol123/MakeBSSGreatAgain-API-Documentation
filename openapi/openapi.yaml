@@ -70,14 +70,14 @@ paths:
       $ref: paths/board/post.yaml
   /board/{postID}:
     delete: # Delete a post
-      $ref: paths/board/content/delete.yaml
+      $ref: paths/board/{postID}/delete.yaml
     put: # Revise a post
-      $ref: paths/board/content/put.yaml
+      $ref: paths/board/{postID}/put.yaml
     get: # Retrieve a post
-      $ref: paths/board/content/get.yaml
+      $ref: paths/board/{postID}/get.yaml
   /board/like:
     post: # Press the like button
-      $ref: paths/board/like/put.yaml
+      $ref: paths/board/like/post.yaml
 components:
   securitySchemes:
     idPassword:
