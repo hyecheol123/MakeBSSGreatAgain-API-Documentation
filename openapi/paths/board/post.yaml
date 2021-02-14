@@ -1,7 +1,7 @@
 tags:
   - Post
 summary: Write a new post
-operationId: wrtie
+operationId: write
 description: | 
   Write a new post on board. Logined user only
 security:
