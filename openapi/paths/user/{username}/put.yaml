@@ -1,0 +1,38 @@
+tags:
+  - User
+summary: Update user detail
+operationId: updateUserDetail
+description: |
+  Modify user's information.
+  Only the owner of the account can use this API.
+
+  This API requires username (provided as path parameter).
+  In the RequestBody, the contents to be modified are listed.
+  Once the modification complete, this API will return the user information.
+
+  If the user changed the email, the user need to [verify the new email](#operation/sendEmailVerifyTicket).
+  Before the verification, the email will not be used for notification and public contact.
+  If user does not verify the email within 3 days, the email modification will be rolled-back.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../components/parameters/username.yaml
+requestBody:
+  required: true
+  content:
+    appication/json:
+      schema:
+        $ref: ../../../components/schemas/userinfoModify.yaml
+responses:
+  '200':
+    description: Found user information with given username
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/userinfo.yaml
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the username

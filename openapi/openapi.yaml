@@ -71,12 +71,12 @@ paths:
     get: # Retrieve single comment
       $ref: /comment/{comment-pk}/get.yaml
     delete: # Delete single comment
-      $ref: comment/{comment-pk}/erase/delete.yaml
+      $ref: comment/{comment-pk}/delete.yaml
     put: # Update single comment
-      $ref: comment/{comment-pk}/fixed/update.yaml
+      $ref: comment/{comment-pk}/update.yaml
   /comment/{commentID}/report:
     post: # Report comment
-      $ref: comment/declaration/declaration-update.yaml
+      $ref: comment/{comment-pk}/report.yaml
 components:
   securitySchemes:
     idPassword:
@@ -84,10 +84,8 @@ components:
       scheme: basic
       description: |
         Basic Authentication will be used to **retrieve tokens**.
-
         For security reasons, the maximum number of trying signin will be limited.
         If user failed to login 5 consecutive times, the account will be locked.
-
         It requires `Authorization` headers that contains the word `Basic` followed by a space and a base64-encoded string `username:password`.
     accessToken:
       type: apiKey
