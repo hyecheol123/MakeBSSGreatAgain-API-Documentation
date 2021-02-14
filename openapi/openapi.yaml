@@ -74,13 +74,10 @@ paths:
     put: # Revise a post
       $ref: paths/board/content/put.yaml
     get: # Retrieve a post
-      $ref: # TODO
+      $ref: paths/board/content/get.yaml
   /board/like:
     post: # Press the like button
       $ref: paths/board/reaction/put.yaml
-  /board/search:
-    get: # Search the posts
-      $ref: paths/board/search/get.yaml
 components:
   securitySchemes:
     idPassword:
