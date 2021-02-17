@@ -12,7 +12,7 @@ requestBody:
         $ref: ../../../components/schemas/(        ).yaml
 responses:
   '200':
-    description: Found post with give information
+    description: Found comment with give information
     content:
       application/json:
         schema:

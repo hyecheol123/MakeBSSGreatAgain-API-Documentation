@@ -9,7 +9,7 @@ requestBody:
   content:
     appication/json:
       schema:
-        $ref: ../../../../components/schemas/(         ).yaml
+        $ref: ../../../../components/schemas/commentUpdateForm.yaml
 responses:
   '201':
     description: Comment successfully update

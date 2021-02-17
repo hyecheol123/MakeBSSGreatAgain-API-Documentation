@@ -1,0 +1,11 @@
+allOf:
+  - $ref: username.yaml
+  - $ref: newComment.yaml
+  - type: object
+    properties:
+      comment:
+        type: string
+
+example:
+  username: gildong123
+  newComment: Hello World!!!
