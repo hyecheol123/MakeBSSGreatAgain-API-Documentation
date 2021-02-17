@@ -10,6 +10,8 @@ requestBody:
     appication/json:
       schema:
         $ref: ../../../components/schemas/postReviseForm.yaml
+parameters:
+  - $ref: ../../../components/parameters/postname.yaml
 responses:
   '201':
     description: Post successfully revised

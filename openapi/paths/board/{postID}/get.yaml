@@ -10,6 +10,8 @@ requestBody:
     application/json:
       schema:
         $ref: ../../../components/schemas/postSearchForm.yaml
+parameters:
+  - $ref: ../../../components/parameters/postname.yaml
 responses:
   '200':
     description: Successfully found post with given information

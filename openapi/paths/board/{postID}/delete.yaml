@@ -6,6 +6,8 @@ description: |
   Delete the post. Verified users can only.
 security:
   - accessToken: []
+parameters:
+  - $ref: ../../../components/parameters/postname.yaml
 responses:
   '200':
     description: Successfully deleted the post
