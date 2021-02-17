@@ -1,0 +1,23 @@
+tags:
+  - Comment
+summary: Give comment
+operationId: getComment
+description: |
+  Give comments when parent(board or comment) required
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../components/schemas/(        ).yaml
+responses:
+  '200':
+    description: Found post with give information
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/newComment.yaml
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '404':
+    description: Cannot find comment

@@ -1,5 +1,5 @@
 tags:
-  - Post
+  - Comment
 summary: Write a new comment
 operationId: write
 description: |

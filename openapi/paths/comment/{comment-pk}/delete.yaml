@@ -1,0 +1,13 @@
+tags:
+  - Comment
+summary: Delete comment
+operationId: deleteComment
+description: |
+  Delete the comment when user == writer
+security:
+  - accessToken: []
+responses:
+  '200':
+    description: Successfully deleted the comment
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml

@@ -1,0 +1,19 @@
+tags:
+  - Comment
+summary: Update Comment
+operationId: updateComment
+description: |
+  Update the Comment when user == writer
+requestBody:
+  required: true
+  content:
+    appication/json:
+      schema:
+        $ref: ../../../../components/schemas/(         ).yaml
+responses:
+  '201':
+    description: Comment successfully update
+  '400':
+    $ref: ../../../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
