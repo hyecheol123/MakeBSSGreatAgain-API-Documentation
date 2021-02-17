@@ -73,10 +73,10 @@ paths:
     delete: # Delete single comment
       $ref: comment/{comment-pk}/delete.yaml
     put: # Update single comment
-      $ref: comment/{comment-pk}/update.yaml
+      $ref: comment/{comment-pk}/put.yaml
   /comment/{commentID}/report:
     post: # Report comment
-      $ref: comment/{comment-pk}/report.yaml
+      $ref: comment/{comment-pk}/post.yaml
 components:
   securitySchemes:
     idPassword:
