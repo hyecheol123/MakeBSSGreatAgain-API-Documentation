@@ -14,4 +14,4 @@ responses:
         schema:
           $ref: ../../components/schemas/newpost.yaml
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    $ref: ../../components/responses/unauthorized.yaml

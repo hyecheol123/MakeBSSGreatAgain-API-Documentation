@@ -1,4 +1,4 @@
-allof:
+allOf:
   - $ref: newpost.yaml
 example:
   newpost: abcdef

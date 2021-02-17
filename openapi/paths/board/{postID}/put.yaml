@@ -3,17 +3,17 @@ tags:
 summary: Revise the Post
 operationId: revisePost.
 description: |
-  Revise the post.
+  Revise the post
 requestBody:
   required: true
   content:
     appication/json:
       schema:
-        $ref: ../../../../components/schemas/postReviseForm.yaml
+        $ref: ../../../components/schemas/postReviseForm.yaml
 responses:
   '201':
     description: Post successfully revised
   '400':
-    $ref: ../../../../components/responses/missingField.yaml
+    $ref: ../../../components/responses/missingField.yaml
   '404':
     description: Cannot find user or password reset ticket with given information

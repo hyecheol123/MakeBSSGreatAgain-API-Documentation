@@ -2,7 +2,7 @@ tags:
   - Board
 summary: Find post
 operationId: findPost
-description: |
+description: | 
   Find post by post name or post contents
 requestBody:
   required: true
@@ -12,7 +12,7 @@ requestBody:
         $ref: ../../../components/schemas/postSearchForm.yaml
 responses:
   '200':
-    description: Found post with give information
+    description: Successfully found post with given information
     content:
       application/json:
         schema:
@@ -20,4 +20,4 @@ responses:
   '400':
     $ref: ../../../components/responses/missingField.yaml
   '404':
-    description: Cannot find post with provided information
+    description: Cannot find post with given information
