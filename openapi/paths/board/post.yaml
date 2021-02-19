@@ -1,5 +1,5 @@
 tags:
-  - Post
+  - Board
 summary: Write a new post
 operationId: write
 description: | 
