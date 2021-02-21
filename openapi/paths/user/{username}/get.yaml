@@ -26,8 +26,8 @@ responses:
             value:
               username: gildong123
               admissionYear: 2015
-              name-korean: 홍길동
-              name-english: "Gildong Hong"
+              nameKorean: 홍길동
+              nameEnglish: "Gildong Hong"
               email: gildong.hong@example.com
               phoneNumber:
                 countryCode: 82
@@ -37,8 +37,8 @@ responses:
             value:
               username: gildong123
               admissionYear: 2015
-              name-korean: 홍길동
-              name-english: "Gildong Hong"
+              nameKorean: 홍길동
+              nameEnglish: "Gildong Hong"
               email: gildong.hong@example.com
   '401':
     $ref: ../../../components/responses/unauthorized.yaml
