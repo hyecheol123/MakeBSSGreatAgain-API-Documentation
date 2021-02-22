@@ -1,8 +1,0 @@
-allOf:
-  - $ref: username.yaml
-  - $ref: newpost.yaml
-  - type: object
-  
-example:
-  username: gildong123
-  newPassword: thisisnewpassword

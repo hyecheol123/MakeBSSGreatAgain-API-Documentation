@@ -1,21 +1,29 @@
 tags:
   - Board
-summary: Revise the Post
-operationId: revisePost.
+summary: Modify an existing post.
+operationId: modifyPost.
 description: |
-  Revise the post
+  Modify an existing post having matching postID.
+  Only writer of the article or admin user can modify the post.
+
+  Can modify either title, category of the post, or the contents.
+  Once the post successfully created, return the URL of the article.
+parameters:
+  - $ref: ../../../components/parameters/postID.yaml
 requestBody:
   required: true
   content:
-    appication/json:
+    application/json:
       schema:
-        $ref: ../../../components/schemas/postReviseForm.yaml
-parameters:
-  - $ref: ../../../components/parameters/postname.yaml
+        $ref: ../../../components/schemas/articleModify.yaml
 responses:
-  '201':
-    description: Post successfully revised
+  '200':
+    description: Post Modified
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/articleURL.yaml
   '400':
-    $ref: ../../../components/responses/missingField.yaml
-  '404':
-    description: Cannot find user or password reset ticket with given information
+    $ref: ../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../components/responses/unauthorized.yaml
