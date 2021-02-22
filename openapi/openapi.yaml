@@ -95,8 +95,8 @@ paths:
       $ref: paths/board/like/{postID}/post.yaml
     delete: # Un-press the like button
       $ref: paths/board/like/{postID}/delete.yaml
-  #   get: # Retrieve the number of likes
-  #     # TODO
+    get: # Retrieve the number of likes
+      $ref: paths/board/like/{postID}/get.yaml
   # /board/report/{postID}:
   #   post: # Report harmful article to admin
   #     # TODO
