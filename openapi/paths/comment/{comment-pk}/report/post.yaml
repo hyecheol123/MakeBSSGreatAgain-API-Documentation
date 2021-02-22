@@ -3,7 +3,8 @@ tags:
 summary: Notice comment report
 operationId: commentReport
 description: |
-  Notice to admin about comment report
+  Notice to admin about comment report.
+  reportCount++
   Logined user only.
 security:
   - idPassword: []

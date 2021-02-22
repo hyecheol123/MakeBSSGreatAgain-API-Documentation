@@ -1,6 +1,8 @@
 allOf:
   - $ref: newComment.yaml
   - $ref: email.yaml
+  - $ref: reportCount.yaml
 example:
-  name: Comment Title
+  newComment: Comment Contents
   email: admin@example.com
+  reportCount: 3
