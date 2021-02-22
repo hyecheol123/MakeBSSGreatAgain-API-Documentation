@@ -1,15 +1,18 @@
 tags:
   - Board
-summary: Delete post
+summary: Delete an existing post
 operationId: deletePost
 description: | 
-  Delete the post. Verified users can only.
+  Delete a post having given postID.
+  Only writer of the article or admin user can delete the post.
 security:
   - accessToken: []
 parameters:
-  - $ref: ../../../components/parameters/postname.yaml
+  - $ref: ../../../components/parameters/postID.yaml
 responses:
   '200':
     description: Successfully deleted the post
   '401':
     $ref: ../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the matching article with given postID.

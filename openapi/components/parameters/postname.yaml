@@ -1,6 +1,0 @@
-name: postID
-in: path
-description: post ID
-required: true
-schema:
-  type: string
