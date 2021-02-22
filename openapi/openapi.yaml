@@ -73,8 +73,8 @@ paths:
   /board:
     post: # Make new post and write
       $ref: paths/board/post.yaml
-  #   get: # Retrieve list of articles
-  #     # TODO - Include Searching by using QueryString.
+    get: # Retrieve list of articles / Support searching by using QueryString
+      $ref: paths/board/get.yaml
   # /board/category:
   #   post: # Create new category
   #     # TODO - Admin only operation
