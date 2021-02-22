@@ -1,0 +1,9 @@
+type: object
+properties:
+  likeCount:
+    type: integer
+    format: int32
+required:
+  - likeCount
+example:
+  likeCount: 8

@@ -1,0 +1,24 @@
+tags:
+  - Board
+summary: Remove Like to the article.
+operationId: removeLikePost
+description: |
+  Remove Like to the post.
+  Every user with read access to the post can remove Like.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../components/parameters/postID.yaml
+responses:
+  '200':
+    description: Like Successfully removed.
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/like.yaml
+  '400':
+    description: User already removed Like for the post.
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the post with the given postID.

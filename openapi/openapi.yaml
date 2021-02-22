@@ -21,6 +21,8 @@ tags:
     description: Authorization/Authentication operations
   - name: User
     description: User account related operations
+  - name: Board
+    description: Articles/Threads/Posts related operations
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
@@ -67,6 +69,37 @@ paths:
   /user/password-reset/{ticketID}:
     put: # Use password reset ticket to reset the password
       $ref: paths/user/password-reset/{ticketID}/put.yaml
+  # board APIs
+  /board:
+    post: # Make new post and write
+      $ref: paths/board/post.yaml
+  #   get: # Retrieve list of articles
+  #     # TODO - Include Searching by using QueryString.
+  # /board/category:
+  #   post: # Create new category
+  #     # TODO - Admin only operation
+  #   get: # Retrieve list of categories
+  #     # TODO
+  # /board/category/{categoryName}:
+  #   delete: # Remove category
+  #     # TODO - Admin Only Operation
+  /board/{postID}:
+    delete: # Delete a post
+      $ref: paths/board/{postID}/delete.yaml
+    put: # Revise a post
+      $ref: paths/board/{postID}/put.yaml
+    get: # Retrieve a post
+      $ref: paths/board/{postID}/get.yaml
+  /board/like/{postID}:
+    post: # Press the like button
+      $ref: paths/board/like/{postID}/post.yaml
+    delete: # Un-press the like button
+      $ref: paths/board/like/{postID}/delete.yaml
+    get: # Retrieve the number of likes
+      $ref: paths/board/like/{postID}/get.yaml
+  # /board/report/{postID}:
+  #   post: # Report harmful article to admin
+  #     # TODO
 components:
   securitySchemes:
     idPassword:

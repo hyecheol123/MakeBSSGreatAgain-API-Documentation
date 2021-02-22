@@ -1,0 +1,9 @@
+type: object
+properties:
+  articleURL:
+    type: string
+    format: URL
+required:
+  - articleURL
+example:
+  articleURL: "https://bshs.or.kr/3D6DCJKDSL"

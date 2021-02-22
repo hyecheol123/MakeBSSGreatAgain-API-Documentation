@@ -1,0 +1,22 @@
+tags:
+  - Board
+summary: Retrieve Like counts of the article.
+operationId: getLikeCountPost
+description: |
+  Retrieve Like counts of the post.
+  Every user with read access to the post can retrieve the number of Likes.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../components/parameters/postID.yaml
+responses:
+  '200':
+    description: Like Count.
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/like.yaml
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the post with the given postID.

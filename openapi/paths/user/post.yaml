@@ -12,7 +12,7 @@ description: |
 requestBody:
   required: true
   content:
-    appication/json:
+    application/json:
       schema:
         $ref: ../../components/schemas/newAccount.yaml
 responses:
