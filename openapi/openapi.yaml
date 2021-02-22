@@ -93,8 +93,8 @@ paths:
   /board/like/{postID}:
     post: # Press the like button
       $ref: paths/board/like/{postID}/post.yaml
-  #   delete: # Un-press the like button
-  #     # TODO
+    delete: # Un-press the like button
+      $ref: paths/board/like/{postID}/delete.yaml
   #   get: # Retrieve the number of likes
   #     # TODO
   # /board/report/{postID}:

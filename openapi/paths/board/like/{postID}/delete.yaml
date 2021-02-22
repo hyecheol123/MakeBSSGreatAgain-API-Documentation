@@ -1,23 +1,23 @@
 tags:
   - Board
-summary: Add Like to the article.
-operationId: likePost
+summary: Remove Like to the article.
+operationId: removeLikePost
 description: |
-  Give Like to the post.
-  Every user with read access to the post can add Like.
+  Remove Like to the post.
+  Every user with read access to the post can remove Like.
 security:
   - accessToken: []
 parameters:
   - $ref: ../../../../components/parameters/postID.yaml
 responses:
   '200':
-    description: Like Successfully added.
+    description: Like Successfully removed.
     content:
       application/json:
         schema:
           $ref: ../../../../components/schemas/like.yaml
   '400':
-    description: User already Liked the post.
+    description: User already removed Like for the post.
   '401':
     $ref: ../../../../components/responses/unauthorized.yaml
   '404':
