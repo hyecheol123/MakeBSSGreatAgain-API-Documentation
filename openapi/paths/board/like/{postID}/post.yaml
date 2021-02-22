@@ -15,4 +15,4 @@ responses:
   '400':
     description: User already Liked the post.
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    $ref: ../../../../components/responses/unauthorized.yaml
