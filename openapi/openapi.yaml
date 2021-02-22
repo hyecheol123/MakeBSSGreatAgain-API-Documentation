@@ -22,7 +22,7 @@ tags:
   - name: User
     description: User account related operations
   - name: Board
-    description: Writing/Posting operations
+    description: Articles/Threads/Posts related operations
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
