@@ -66,7 +66,6 @@ paths:
   /comment:
     post:  # New comment
       $ref: comment/post.yaml
-  # TODO: Need API to retrieve multiple comments w.r.t. postID
   /comment/{commentID}:
     get: # Retrieve single comment
       $ref: /comment/{comment-pk}/get.yaml

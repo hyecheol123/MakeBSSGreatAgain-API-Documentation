@@ -1,0 +1,6 @@
+allOf:
+  - $ref: newComment.yaml
+  - $ref: email.yaml
+example:
+  name: Comment Title
+  email: admin@example.com
