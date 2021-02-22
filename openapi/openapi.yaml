@@ -85,11 +85,11 @@ paths:
       # TODO - Admin Only Operation
   /board/{postID}:
     delete: # Delete a post
-      $ref: paths/board/{postID}/delete.yaml
+      $ref: paths/board/{postID}/delete.yaml # TODO
     put: # Revise a post
-      $ref: paths/board/{postID}/put.yaml
+      $ref: paths/board/{postID}/put.yaml # TODO
     get: # Retrieve a post
-      $ref: paths/board/{postID}/get.yaml
+      $ref: paths/board/{postID}/get.yaml # TODO
   /board/like/{postID}:
     post: # Press the like button
       $ref: paths/board/like/{postID}post.yaml # TODO
