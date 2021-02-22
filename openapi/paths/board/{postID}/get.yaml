@@ -1,25 +1,22 @@
 tags:
   - Board
-summary: Find post
-operationId: findPost
+summary: Retrieve existing post.
+operationId: retrievePost
 description: | 
-  Find post by post name or post contents
-requestBody:
-  required: true
-  content:
-    application/json:
-      schema:
-        $ref: ../../../components/schemas/postSearchForm.yaml
+  Retrieve a post having given postID.
+  Every verified user can read the article.
+security:
+  - accessToken: []
 parameters:
-  - $ref: ../../../components/parameters/postname.yaml
+  - $ref: ../../../components/parameters/postID.yaml
 responses:
   '200':
-    description: Successfully found post with given information
+    description: Successfully found post with given postID
     content:
       application/json:
         schema:
-          $ref: ../../../components/schemas/newpost.yaml
-  '400':
-    $ref: ../../../components/responses/missingField.yaml
+          $ref: ../../../components/schemas/article.yaml
   '404':
-    description: Cannot find post with given information
+    description: Cannot find post with given postID
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml

@@ -74,7 +74,7 @@ paths:
     post: # Make new post and write
       $ref: paths/board/post.yaml
     get: # Retrieve list of articles
-      # TODO
+      # TODO - Include Searching by using QueryString.
   /board/category:
     post: # Create new category
       # TODO - Admin only operation
@@ -89,7 +89,7 @@ paths:
     put: # Revise a post
       $ref: paths/board/{postID}/put.yaml
     get: # Retrieve a post
-      $ref: paths/board/{postID}/get.yaml # TODO
+      $ref: paths/board/{postID}/get.yaml
   /board/like/{postID}:
     post: # Press the like button
       $ref: paths/board/like/{postID}/post.yaml # TODO
@@ -97,9 +97,6 @@ paths:
       # TODO
     get: # Retrieve the number of likes
       # TODO
-  /board/search:
-    get: # Search Articles
-      # TODO - Search Criteria should appears in the Query String
   /board/report/{postID}:
     post: # Report harmful article to admin
       # TODO
