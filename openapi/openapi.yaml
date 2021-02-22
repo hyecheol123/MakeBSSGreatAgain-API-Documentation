@@ -73,16 +73,16 @@ paths:
   /board:
     post: # Make new post and write
       $ref: paths/board/post.yaml
-    get: # Retrieve list of articles
-      # TODO - Include Searching by using QueryString.
-  /board/category:
-    post: # Create new category
-      # TODO - Admin only operation
-    get: # Retrieve list of categories
-      # TODO
-  /board/category/{categoryName}:
-    delete: # Remove category
-      # TODO - Admin Only Operation
+  #   get: # Retrieve list of articles
+  #     # TODO - Include Searching by using QueryString.
+  # /board/category:
+  #   post: # Create new category
+  #     # TODO - Admin only operation
+  #   get: # Retrieve list of categories
+  #     # TODO
+  # /board/category/{categoryName}:
+  #   delete: # Remove category
+  #     # TODO - Admin Only Operation
   /board/{postID}:
     delete: # Delete a post
       $ref: paths/board/{postID}/delete.yaml
@@ -90,16 +90,16 @@ paths:
       $ref: paths/board/{postID}/put.yaml
     get: # Retrieve a post
       $ref: paths/board/{postID}/get.yaml
-  /board/like/{postID}:
-    post: # Press the like button
-      $ref: paths/board/like/{postID}/post.yaml # TODO
-    delete: # Un-press the like button
-      # TODO
-    get: # Retrieve the number of likes
-      # TODO
-  /board/report/{postID}:
-    post: # Report harmful article to admin
-      # TODO
+  # /board/like/{postID}:
+  #   post: # Press the like button
+  #     $ref: paths/board/like/{postID}/post.yaml # TODO
+  #   delete: # Un-press the like button
+  #     # TODO
+  #   get: # Retrieve the number of likes
+  #     # TODO
+  # /board/report/{postID}:
+  #   post: # Report harmful article to admin
+  #     # TODO
 components:
   securitySchemes:
     idPassword:
