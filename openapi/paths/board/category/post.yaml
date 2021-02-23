@@ -1,20 +1,22 @@
 tags:
   - Board
 summary: Make a new category
-operationId: setCategory
+operationId: newCategory
 description: |
   Make a new category.
   Admin can only create category. 
 security:
   - accessToken: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../components/schemas/category.yaml
 responses:
-  '200':
+  '201':
     description: New category has been Successfully created.
-    content:
-      application/json:
-        schema:
-          $ref: ../../../components/schemas/category.yaml
   '400':
-    description: This category is already created.
+    description: This category has already been created.
   '401':
-    $ref: ../../../../components/responses/unauthorized.yaml
+    $ref: ../../../components/responses/unauthorized.yaml

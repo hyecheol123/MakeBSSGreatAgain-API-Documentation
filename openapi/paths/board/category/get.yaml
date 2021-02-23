@@ -1,19 +1,17 @@
 tags:
   - Board
-summary: Retrieve existing category.
-operationId: retrieveCategory
+summary: Retrieve list of existing categories.
+operationId: listCategory
 description: | 
-  Retrieve a category with part of caregory name.
+  Retrieve list of all existing categories.
 security:
   - accessToken: []
 responses:
   '200':
-    description: Successfully found category with search word
+    description: Successfully retrieved list of categories.
     content:
       application/json:
         schema:
-          $ref: ../../../components/schemas/category.yaml
-  '404':
-    description: Cannot find category
+          $ref: ../../../components/schemas/categoryList.yaml
   '401':
     $ref: ../../../components/responses/unauthorized.yaml

@@ -1,6 +1,6 @@
 name: categoryName
 in: path
-description: User can make cateogry of articles which is related each other. Each category have their own name. 
+description: Name of the category.
 required: true
 schema:
   type: string
