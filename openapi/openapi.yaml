@@ -23,6 +23,8 @@ tags:
     description: User account related operations
   - name: Board
     description: Articles/Threads/Posts related operations
+  - name: Comment
+    description: Comments related operations
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
@@ -114,9 +116,9 @@ paths:
   # /comment/reply/{commentID}:
   #   post: # reply to a comment
   #     $ref:
-  # /comment/report/{commentID}:
-  #   post: # Report comment
-  #     $ref: paths/comment/{commentID}/post.yaml
+  /comment/report/{commentID}:
+    post: # Report harmful comment to admin
+      $ref: paths/comment/report/{commentID}/post.yaml
 components:
   securitySchemes:
     idPassword:

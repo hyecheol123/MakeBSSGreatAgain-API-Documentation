@@ -1,9 +1,0 @@
-type: object
-properties:
-  reportCount:
-    type: integer
-    format: int32
-required:
-  - reportCount
-example:
-  reportCount: 3
