@@ -113,9 +113,6 @@ paths:
       $ref: paths/comment/{commentID}/delete.yaml
     put: # Update single comment
       $ref: paths/comment/{commentID}/put.yaml
-  # /comment/reply/{commentID}:
-  #   post: # reply to a comment
-  #     $ref:
   /comment/report/{commentID}:
     post: # Report harmful comment to admin
       $ref: paths/comment/report/{commentID}/post.yaml
