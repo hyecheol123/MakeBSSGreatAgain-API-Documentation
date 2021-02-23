@@ -1,0 +1,20 @@
+tags:
+  - Board
+summary: Delete an existing category
+operationId: deleteCategory
+description: | 
+  Delete a category with given `categoryName`.
+  Only admin user can delete the post.
+
+  The articles in the category are not removed, but the category information is removed.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../components/parameters/categoryName.yaml
+responses:
+  '200':
+    description: Successfully deleted the category.
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the matching category with given `categoryName`.

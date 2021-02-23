@@ -1,0 +1,6 @@
+name: categoryName
+in: path
+description: Name of the category.
+required: true
+schema:
+  type: string

@@ -90,16 +90,16 @@ paths:
   /board:
     post: # Make new post and write
       $ref: paths/board/post.yaml
-  #   get: # Retrieve list of articles
-  #     # TODO - Include Searching by using QueryString.
-  # /board/category:
-  #   post: # Create new category
-  #     # TODO - Admin only operation
-  #   get: # Retrieve list of categories
-  #     # TODO
-  # /board/category/{categoryName}:
-  #   delete: # Remove category
-  #     # TODO - Admin Only Operation
+    get: # Retrieve list of articles / Support searching by using QueryString
+      $ref: paths/board/get.yaml
+  /board/category:
+    post: # Create new category
+      $ref: paths/board/category/post.yaml
+    get: # Retrieve list of categories
+      $ref: paths/board/category/get.yaml
+  /board/category/{categoryName}:
+    delete: # Remove category
+      $ref: paths/board/category/{categoryName}/delete.yaml
   /board/{postID}:
     delete: # Delete a post
       $ref: paths/board/{postID}/delete.yaml
@@ -114,9 +114,9 @@ paths:
       $ref: paths/board/like/{postID}/delete.yaml
     get: # Retrieve the number of likes
       $ref: paths/board/like/{postID}/get.yaml
-  # /board/report/{postID}:
-  #   post: # Report harmful article to admin
-  #     # TODO
+  /board/report/{postID}:
+    post: # Report harmful article to admin
+      $ref: paths/board/report/{postID}/post.yaml
 components:
   securitySchemes:
     idPassword:

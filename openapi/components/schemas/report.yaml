@@ -1,0 +1,11 @@
+type: object
+properties:
+  reason:
+    type: string
+  additionalComment:
+    type: string
+required:
+  - reason
+example:
+  reason: "fake news"
+  additionalComment: "This information contains fake and dangerous information, which has been confirmed by the authorities."
