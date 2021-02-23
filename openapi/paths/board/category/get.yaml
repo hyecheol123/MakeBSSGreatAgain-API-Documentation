@@ -1,0 +1,19 @@
+tags:
+  - Board
+summary: Retrieve existing category.
+operationId: retrieveCategory
+description: | 
+  Retrieve a category with part of caregory name.
+security:
+  - accessToken: []
+responses:
+  '200':
+    description: Successfully found category with search word
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/category.yaml
+  '404':
+    description: Cannot find category
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml

@@ -1,0 +1,8 @@
+type: object
+properties:
+  categoryName:
+    type: string
+required:
+  - categoryName
+example:
+  categoryName: Group1
