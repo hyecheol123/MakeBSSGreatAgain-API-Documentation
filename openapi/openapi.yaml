@@ -69,20 +69,6 @@ paths:
   /user/password-reset/{ticketID}:
     put: # Use password reset ticket to reset the password
       $ref: paths/user/password-reset/{ticketID}/put.yaml
-  # comment APIs
-  /comment:
-    post:  # New comment
-      $ref: comment/post.yaml
-  /comment/{commentID}:
-    get: # Retrieve single comment
-      $ref: /comment/{comment-pk}/get.yaml
-    delete: # Delete single comment
-      $ref: comment/{comment-pk}/delete.yaml
-    put: # Update single comment
-      $ref: comment/{comment-pk}/put.yaml
-  /comment/{commentID}/report:
-    post: # Report comment
-      $ref: comment/{comment-pk}/post.yaml
   # board APIs
   /board:
     post: # Make new post and write
@@ -114,6 +100,23 @@ paths:
   /board/report/{postID}:
     post: # Report harmful article to admin
       $ref: paths/board/report/{postID}/post.yaml
+  # comment APIs
+  # /comment/{postID}:
+  #   post:  # New comment (TODO: Review)
+  #     $ref: paths/comment/post.yaml
+  #   get: # Retrieve comment - use page to divide long result
+  #     $ref:
+  # /comment/{commentID}:
+  #   delete: # Delete single comment
+  #     $ref: paths/comment/{commentID}/delete.yaml
+  #   put: # Update single comment
+  #     $ref: paths/comment/{commentID}/put.yaml
+  # /comment/reply/{commentID}:
+  #   post: # reply to a comment
+  #     $ref:
+  # /comment/report/{commentID}:
+  #   post: # Report comment
+  #     $ref: paths/comment/{commentID}/post.yaml
 components:
   securitySchemes:
     idPassword:
