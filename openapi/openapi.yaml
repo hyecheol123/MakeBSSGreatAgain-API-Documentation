@@ -71,9 +71,9 @@ paths:
   /user/password-reset/{ticketID}:
     put: # Use password reset ticket to reset the password
       $ref: paths/user/password-reset/{ticketID}/put.yaml
-  # /user/report/{username}:
-  #   post: # TODO: Report fake/spam user to admin
-  #     $ref:
+  /user/report/{username}:
+    post: # TODO: Report fake/spam user to admin
+      $ref: paths/user/report/{username}/post.yaml
   # /user/promote:
   #   get: # TODO: get instant-promote challenges
   #     $ref:
