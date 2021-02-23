@@ -1,11 +1,17 @@
 type: object
 properties:
+  postID:
+    type: string
+    format: postID
   content:
     type: string
   parentComment:
     type: string
     format: commentID
 required:
+  - postID
   - content
 example:
+  postID: BASE64URLPOSTID1
   content: "Hello World - This is a comment."
+  parentComment: COMMENTIDURLSAFEBASE64STRING

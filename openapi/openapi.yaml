@@ -103,16 +103,16 @@ paths:
     post: # Report harmful article to admin
       $ref: paths/board/report/{postID}/post.yaml
   # comment APIs
-  /comment/{postID}:
+  /comment:
     post:  # New comment
-      $ref: paths/comment/{postID}/post.yaml
+      $ref: paths/comment/post.yaml
   #   get: # Retrieve comment - use page to divide long result
   #     $ref:
-  # /comment/{commentID}:
-  #   delete: # Delete single comment
-  #     $ref: paths/comment/{commentID}/delete.yaml
-  #   put: # Update single comment
-  #     $ref: paths/comment/{commentID}/put.yaml
+  /comment/{commentID}:
+    delete: # Delete single comment
+      $ref: paths/comment/{commentID}/delete.yaml
+    put: # Update single comment
+      $ref: paths/comment/{commentID}/put.yaml
   # /comment/reply/{commentID}:
   #   post: # reply to a comment
   #     $ref:
