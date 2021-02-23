@@ -1,0 +1,28 @@
+tags:
+  - Board
+summary: Report harmful article to admin.
+operationId: reportPost
+description: |
+  Users can report harmful article; they need to provide proper reasons why they think the article is harmful.
+  Admin should review the article.
+
+  If the number of report counts spikes, the article is automatically blinded while the admin reviewing the contents.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../components/parameters/postID.yaml
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../../components/schemas/report.yaml
+responses:
+  '201':
+    description: Successfully reported the post.
+  '400':
+    description: User already Reported the post.
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the post with the given postID.

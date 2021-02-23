@@ -1,0 +1,17 @@
+tags:
+  - Board
+summary: Retrieve list of existing categories.
+operationId: listCategory
+description: | 
+  Retrieve list of all existing categories.
+security:
+  - accessToken: []
+responses:
+  '200':
+    description: Successfully retrieved list of categories.
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/categoryList.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml

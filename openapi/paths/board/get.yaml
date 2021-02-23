@@ -1,0 +1,55 @@
+tags:
+  - Board
+summary: Retrieve a list of articles with matching search criteria
+operationId: searchPost
+description: | 
+  List up posts with matching search criteria. Only Signed in user can upload the article.
+
+  User can specify search terms as query string.
+  Supported options are
+   - Title
+   - Writer (ID/Name)
+   - Content
+   - Category
+  
+  Other options will be ignored but will not throw error.
+  The search result will be ordered by last modified date.
+
+  50 results will be returned at most; user can search further by indicating page parameter in the query string.
+security:
+  - accessToken: []
+parameters:
+  - in: query
+    name: title
+    schema:
+      type: string
+    description: String that contains in the title of article(s).
+  - in: query
+    name: writer
+    schema:
+      type: string
+    description: ID or Name of article's writer.
+  - in: query
+    name: content
+    schema:
+      type: string
+    description: String that contains in the content of either article or related comments.
+  - in: query
+    name: category
+    schema:
+      type: string
+    description: Name of category. Need to be match exactly.
+  - in: query
+    name: page
+    schema:
+      type: integer
+    description: Indicating the page number that used to navigate the search result.
+responses:
+  '200':
+    description: Return Search Result
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/articleSearchResult.yaml
+  '401':
+    $ref: ../../components/responses/unauthorized.yaml
