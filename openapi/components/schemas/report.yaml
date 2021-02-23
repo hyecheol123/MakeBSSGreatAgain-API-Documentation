@@ -1,0 +1,8 @@
+type: object
+properties:
+  reason:
+    type: string
+required:
+  - reason
+example:
+  reason: "fake news"

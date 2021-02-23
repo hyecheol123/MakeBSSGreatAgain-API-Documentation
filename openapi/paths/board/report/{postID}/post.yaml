@@ -1,2 +1,24 @@
-# tags:
-#   - Board
+tags:
+  - Board
+summary: Report harmful article to admin.
+operationId: reportPost
+description: |
+  User can report harmful article.
+  Admin will judge the article and manage.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../components/parameters/postID.yaml
+responses:
+  '200':
+    description: Report Successfully managed.
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/report.yaml
+  '400':
+    description: User already Reported the post.
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the post with the given postID.
