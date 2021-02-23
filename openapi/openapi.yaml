@@ -48,9 +48,9 @@ paths:
       $ref: paths/user/{username}/get.yaml
     put: # Update user information
       $ref: paths/user/{username}/put.yaml
-  /user/{username}/new-password:
+  /user/new-password/{username}:
     post: # Change Password
-      $ref: paths/user/{username}/new-password/post.yaml
+      $ref: paths/user/new-password/{username}/post.yaml
   /user/verify-email:
     post: # Create verification ticket
       $ref: paths/user/verify-email/post.yaml
