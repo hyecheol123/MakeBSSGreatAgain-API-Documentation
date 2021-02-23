@@ -1,0 +1,6 @@
+type: array
+items:
+  $ref: category.yaml
+example:
+  - categoryName: Group1
+  - categoryName: Group2
