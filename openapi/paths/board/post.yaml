@@ -1,0 +1,29 @@
+tags:
+  - Board
+summary: Write a new post
+operationId: newPost
+description: | 
+  Write a new post on board. Only Signed in user can upload the article.
+
+  Need title and category of the post, and the contents.
+  Once the post successfully created, return the URL of the article.
+  Note that article URL contains postID, and this is created by mixing generated date, userID, and title.
+security:
+  - accessToken: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../components/schemas/article.yaml
+responses:
+  '200':
+    description: New Post Created
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/articleURL.yaml
+  '400':
+    $ref: ../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../components/responses/unauthorized.yaml

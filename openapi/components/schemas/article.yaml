@@ -1,0 +1,16 @@
+type: object
+properties:
+  title:
+    type: string
+  category:
+    type: string
+  content:
+    type: string
+    format: HTML
+required:
+  - title
+  - content
+example:
+  title: "Hello World."
+  category: "Group 1"
+  content: "<p>Hello World!!</p>"

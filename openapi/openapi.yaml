@@ -21,6 +21,8 @@ tags:
     description: Authorization/Authentication operations
   - name: User
     description: User account related operations
+  - name: Board
+    description: Articles/Threads/Posts related operations
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
@@ -44,6 +46,11 @@ paths:
   /user/{username}:
     get: # Retrieve user information
       $ref: paths/user/{username}/get.yaml
+    put: # Update user information
+      $ref: paths/user/{username}/put.yaml
+  /user/{username}/new-password:
+    post: # Change Password
+      $ref: paths/user/{username}/new-password/post.yaml
   /user/verify-email:
     post: # Create verification ticket
       $ref: paths/user/verify-email/post.yaml
@@ -76,6 +83,37 @@ paths:
   /comment/{commentID}/report:
     post: # Report comment
       $ref: comment/{comment-pk}/post.yaml
+  # board APIs
+  /board:
+    post: # Make new post and write
+      $ref: paths/board/post.yaml
+  #   get: # Retrieve list of articles
+  #     # TODO - Include Searching by using QueryString.
+  # /board/category:
+  #   post: # Create new category
+  #     # TODO - Admin only operation
+  #   get: # Retrieve list of categories
+  #     # TODO
+  # /board/category/{categoryName}:
+  #   delete: # Remove category
+  #     # TODO - Admin Only Operation
+  /board/{postID}:
+    delete: # Delete a post
+      $ref: paths/board/{postID}/delete.yaml
+    put: # Revise a post
+      $ref: paths/board/{postID}/put.yaml
+    get: # Retrieve a post
+      $ref: paths/board/{postID}/get.yaml
+  /board/like/{postID}:
+    post: # Press the like button
+      $ref: paths/board/like/{postID}/post.yaml
+    delete: # Un-press the like button
+      $ref: paths/board/like/{postID}/delete.yaml
+    get: # Retrieve the number of likes
+      $ref: paths/board/like/{postID}/get.yaml
+  # /board/report/{postID}:
+  #   post: # Report harmful article to admin
+  #     # TODO
 components:
   securitySchemes:
     idPassword:

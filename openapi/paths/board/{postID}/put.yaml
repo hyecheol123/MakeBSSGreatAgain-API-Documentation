@@ -1,0 +1,29 @@
+tags:
+  - Board
+summary: Modify an existing post.
+operationId: modifyPost.
+description: |
+  Modify an existing post having matching postID.
+  Only writer of the article or admin user can modify the post.
+
+  Can modify either title, category of the post, or the contents.
+  Once the post successfully created, return the URL of the article.
+parameters:
+  - $ref: ../../../components/parameters/postID.yaml
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../components/schemas/articleModify.yaml
+responses:
+  '200':
+    description: Post Modified
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/articleURL.yaml
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
