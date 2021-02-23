@@ -103,9 +103,9 @@ paths:
     post: # Report harmful article to admin
       $ref: paths/board/report/{postID}/post.yaml
   # comment APIs
-  # /comment/{postID}:
-  #   post:  # New comment (TODO: Review)
-  #     $ref: paths/comment/post.yaml
+  /comment/{postID}:
+    post:  # New comment
+      $ref: paths/comment/{postID}/post.yaml
   #   get: # Retrieve comment - use page to divide long result
   #     $ref:
   # /comment/{commentID}:

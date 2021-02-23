@@ -1,0 +1,11 @@
+type: object
+properties:
+  content:
+    type: string
+  parentComment:
+    type: string
+    format: commentID
+required:
+  - content
+example:
+  content: "Hello World - This is a comment."

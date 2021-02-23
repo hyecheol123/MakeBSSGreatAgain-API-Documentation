@@ -1,8 +1,0 @@
-type: object
-properties:
-  newComment:
-    type: string
-required:
-  - comment Contents
-example:
-  post: "Hello World"
