@@ -86,8 +86,8 @@ paths:
       $ref: paths/user/promote/{username}/post.yaml
   #   get: # TODO: retrieve list of upvoters.
   #     $ref:
-  #   delete: # TODO: Cancel upvote
-  #     $ref:
+    delete: # Cancel upvote
+      $ref: paths/user/promote/{username}/delete.yaml
   # board APIs
   /board:
     post: # Make new post and write
