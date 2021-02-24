@@ -106,8 +106,8 @@ paths:
   /comment:
     post:  # New comment
       $ref: paths/comment/post.yaml
-  #   get: # Retrieve comment - use page to divide long result
-  #     $ref:
+    get: # Retrieve comment - use page to divide long result
+      $ref: paths/comment/get.yaml
   /comment/{commentID}:
     delete: # Delete single comment
       $ref: paths/comment/{commentID}/delete.yaml
