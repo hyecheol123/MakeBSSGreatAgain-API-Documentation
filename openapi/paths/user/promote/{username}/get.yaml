@@ -1,0 +1,24 @@
+tags:
+  - User
+summary: Retrieve list of alumni who upvoted the user
+operationId: listVoteUserPromotion
+description: |
+  Retrieve the list of alumni members who upvoted the new user.
+  This API will return the array of usernames and their names.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../components/parameters/username.yaml
+responses:
+  '200':
+    description: Successfully retrieve the list of upvoters
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/upvoterList.yaml
+  '400':
+    description: User already verified
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the user by given username.

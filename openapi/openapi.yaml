@@ -84,8 +84,8 @@ paths:
   /user/promote/{username}:
     post: # Other user to upvote this user to be promoted (verify as a real alumni).
       $ref: paths/user/promote/{username}/post.yaml
-  #   get: # TODO: retrieve list of upvoters.
-  #     $ref:
+    get: # retrieve list of upvoters.
+      $ref: paths/user/promote/{username}/get.yaml
     delete: # Cancel upvote
       $ref: paths/user/promote/{username}/delete.yaml
   # board APIs
