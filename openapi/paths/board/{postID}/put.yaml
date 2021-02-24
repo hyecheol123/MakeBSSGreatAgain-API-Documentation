@@ -1,7 +1,7 @@
 tags:
   - Board
 summary: Modify an existing post.
-operationId: modifyPost.
+operationId: modifyPost
 description: |
   Modify an existing post having matching postID.
   Only writer of the article or admin user can modify the post.
@@ -27,3 +27,5 @@ responses:
     $ref: ../../../components/responses/missingField.yaml
   '401':
     $ref: ../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find an article having given postID

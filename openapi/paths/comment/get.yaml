@@ -1,0 +1,42 @@
+tags:
+  - Comment
+summary: Retrieve comments associated with the post
+operationId: getComment
+description: |
+  List the comments associated with the post. Only signed in user can upload the article.
+
+  This API require postID as a query string in order to specify which article that user want to retrieve the comments.
+
+  By default, first 50 comments will be returned.
+  To navigate next comments, specify `page` argument in query string.
+
+  Other options will be ignored but will not throw any exception.
+  The comment will be ordered by generated date, and the child comments will follow the its parent.
+security:
+  - accessToken: []
+parameters:
+  - in: query
+    name: postID
+    required: true
+    schema:
+      type: string
+      format: postID
+    description: Unique ID indicating an article
+  - in: query
+    name: page
+    schema:
+      type: integer
+    description: Indicating the page number that used to navigate the search result.
+responses:
+  '200':
+    description: Return List of comments
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/commentList.yaml
+  '400':
+    $ref: ../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find a matching article with given postID

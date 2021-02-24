@@ -23,6 +23,8 @@ tags:
     description: User account related operations
   - name: Board
     description: Articles/Threads/Posts related operations
+  - name: Comment
+    description: Comments related operations
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
@@ -100,6 +102,20 @@ paths:
   /board/report/{postID}:
     post: # Report harmful article to admin
       $ref: paths/board/report/{postID}/post.yaml
+  # comment APIs
+  /comment:
+    post:  # New comment
+      $ref: paths/comment/post.yaml
+    get: # Retrieve comment - use page to divide long result
+      $ref: paths/comment/get.yaml
+  /comment/{commentID}:
+    delete: # Delete single comment
+      $ref: paths/comment/{commentID}/delete.yaml
+    put: # Update single comment
+      $ref: paths/comment/{commentID}/put.yaml
+  /comment/report/{commentID}:
+    post: # Report harmful comment to admin
+      $ref: paths/comment/report/{commentID}/post.yaml
 components:
   securitySchemes:
     idPassword:
@@ -107,10 +123,8 @@ components:
       scheme: basic
       description: |
         Basic Authentication will be used to **retrieve tokens**.
-
         For security reasons, the maximum number of trying signin will be limited.
-        If user failed to login 5 consecutive times, the account will be locked.  
-
+        If user failed to login 5 consecutive times, the account will be locked.
         It requires `Authorization` headers that contains the word `Basic` followed by a space and a base64-encoded string `username:password`.
     accessToken:
       type: apiKey
