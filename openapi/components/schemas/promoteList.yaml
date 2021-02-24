@@ -1,0 +1,8 @@
+type: array
+items:
+  $ref: promote.yaml
+example:
+  - title: "What was your circle?"
+    content: "JJJ"
+  - title: "What class were you in first grade?"
+    content: "1-4"
