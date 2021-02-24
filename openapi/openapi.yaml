@@ -74,16 +74,16 @@ paths:
     put: # Use password reset ticket to reset the password
       $ref: paths/user/password-reset/{ticketID}/put.yaml
   /user/report/{username}:
-    post: # TODO: Report fake/spam user to admin
+    post: # Report fake/spam user to admin
       $ref: paths/user/report/{username}/post.yaml
   # /user/promote:
   #   get: # TODO: get instant-promote challenges
   #     $ref:
   #   post: # TODO: send the answer of challenges, get the result back.
   #     $ref:
-  # /user/promote/{username}:
-  #   post: # TODO: Other user to upvote this user to be promoted.
-  #     $ref:
+  /user/promote/{username}:
+    post: # Other user to upvote this user to be promoted (verify as a real alumni).
+      $ref: paths/user/promote/{username}/post.yaml
   #   get: # TODO: retrieve list of upvoters.
   #     $ref:
   #   delete: # TODO: Cancel upvote
