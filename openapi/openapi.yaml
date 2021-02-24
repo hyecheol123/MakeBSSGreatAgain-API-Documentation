@@ -25,6 +25,8 @@ tags:
     description: Articles/Threads/Posts related operations
   - name: Comment
     description: Comments related operations
+  - name: Notification
+    description: Notification related operations
 servers:
   - url: 'https://bshs.or.kr/api/v1'
 paths:
@@ -116,6 +118,20 @@ paths:
   /comment/report/{commentID}:
     post: # Report harmful comment to admin
       $ref: paths/comment/report/{commentID}/post.yaml
+  # Notification API
+#  /notification:
+#    post: # Create new notification
+#      $ref:
+#    get: # List notifications
+#      $ref:
+#  /notification/{notificationID}:
+#    put: # Indicate read
+#      $ref:
+#  /notification/email/daily-digest:
+#    post: # Send agreed user daily activity digest - only specified admin can use this API
+#      $ref:
+#  /notification/email/weekly-digest:
+#    post: # Send agreed user weekly activity digest - only specified admin can use this API
 components:
   securitySchemes:
     idPassword:
