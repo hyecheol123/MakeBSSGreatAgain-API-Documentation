@@ -45,8 +45,8 @@ paths:
   /user:
     post: # New user
       $ref: paths/user/post.yaml
-    # get: # TODO: Retrieve list of Users - Search user by passing arguments to query string / Also need to handle promotion
-    #   $ref:
+    get: # Search Users - Also need to handle promotion (verified user)
+      $ref: paths/user/get.yaml
   /user/{username}:
     get: # Retrieve user information
       $ref: paths/user/{username}/get.yaml
