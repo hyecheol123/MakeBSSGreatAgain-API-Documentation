@@ -1,0 +1,26 @@
+tags:
+  - Comment
+summary: Modify an existing comment
+operationId: modifyComment
+description: |
+  Modify an existing comment having matching commentID.
+  Only writer of the comment or admin user can modify the comment.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../components/parameters/commentID.yaml
+requestBody:
+  required: true
+  content:
+    appication/json:
+      schema:
+        $ref: ../../../components/schemas/comment.yaml
+responses:
+  '201':
+    description: Comment successfully update
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find assoicated post with given postID

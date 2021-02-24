@@ -1,0 +1,18 @@
+tags:
+  - Comment
+summary: Delete an existing comment
+operationId: deleteComment
+description: |
+  Delete the comment having given commentID.
+  Only writer of the comment or admin user can delete the comment.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../components/parameters/commentID.yaml
+responses:
+  '200':
+    description: Successfully deleted the comment
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the matching comment with given commentID.

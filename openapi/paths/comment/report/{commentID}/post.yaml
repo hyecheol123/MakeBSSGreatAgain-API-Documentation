@@ -1,0 +1,28 @@
+tags:
+  - Comment
+summary: Report harmful comment to admin.
+operationId: reportComment
+description: |
+  Users can report harmful comment; they need to provide proper reasons why they think the comment is harmful.
+  Admin should review the comment.
+  
+  If the number of report counts spikes, the comment is automatically blind while the admin reviewing the contents.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../components/parameters/commentID.yaml
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../../components/schemas/report.yaml
+responses:
+  '201':
+    description: Successfully reported the comment.
+  '400':
+    description: User already Reported the comment.
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the comment with the given commentID.
