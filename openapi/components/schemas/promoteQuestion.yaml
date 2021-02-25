@@ -17,7 +17,7 @@ required:
   - question
   - choicesList
 example:
-  title: "What is the city that we did not go during the field trip to USA?"
+  question: "What is the city that we did not go during the field trip to USA?"
   choicesList:
     - Boston, MA
     - New York City, NY

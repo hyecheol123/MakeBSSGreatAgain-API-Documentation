@@ -79,8 +79,9 @@ paths:
   /user/promote:
     get: # get instant-promote challenges
       $ref: paths/user/promote/get.yaml
-  #   post: # TODO: send the answer of challenges, get the result back.
-  #     $ref: paths/user/promote/post.yaml
+  /user/promote/challenge-answer:
+    post: # send the answer of challenges, get the result back.
+      $ref: paths/user/promote/challenge-answer/post.yaml
   /user/promote/{username}:
     post: # Other user to upvote this user to be promoted (verify as a real alumni).
       $ref: paths/user/promote/{username}/post.yaml
