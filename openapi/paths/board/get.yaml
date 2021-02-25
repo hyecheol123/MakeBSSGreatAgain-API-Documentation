@@ -3,7 +3,7 @@ tags:
 summary: Retrieve a list of articles with matching search criteria
 operationId: searchPost
 description: | 
-  List up posts with matching search criteria. Only Signed in user can upload the article.
+  List up posts with matching search criteria. Only Signed in user can search the article.
 
   User can specify search terms as query string.
   Supported options are

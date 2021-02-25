@@ -1,6 +1,0 @@
-# This file instructs Redocly's linter to ignore the rules contained for specific parts of your API.
-# See https://redoc.ly/docs/cli/ for more information.
-openapi/openapi.yaml:
-  no-ambiguous-paths: # /user/{username}/new-password and these APIs cause error
-    - '#/paths/~1user~1verify-email~1{ticketID}'
-    - '#/paths/~1user~1password-reset~1{ticketID}'

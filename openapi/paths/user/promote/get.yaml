@@ -1,0 +1,22 @@
+tags:
+  - User
+summary: Get list of challenge questions for approval
+operationId: listPromoteChallengeQuestions
+description: |
+  Get list of challenge questions that let user to instantly approved as an alumni.
+
+  Only new users can do the challenge once.
+  If the approved user or new user that already consumed their attempt, it will throw `400` error.
+security:
+  - accessToken: []
+responses:
+  '200':
+    description: Successfully retrieve the challenge question lists
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/promoteQuestionList.yaml
+  '400':
+    description: User already verified or failed the challenge
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml

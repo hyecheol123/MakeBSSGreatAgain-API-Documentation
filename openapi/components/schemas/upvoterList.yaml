@@ -1,0 +1,18 @@
+type: array
+items:
+  allOf:
+  - $ref: username.yaml
+  - $ref: admissionYear.yaml
+  - type: object
+    properties:
+      nameKorean:
+        type: string
+    required:
+      - nameKorean
+example:
+  - username: gildong123
+    admissionYear: 2015
+    nameKorean: 홍길동
+  - username: gilsoon123
+    admissionYear: 2014
+    nameKorean: 홍길순

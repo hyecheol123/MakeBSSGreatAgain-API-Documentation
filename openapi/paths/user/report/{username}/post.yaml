@@ -1,0 +1,28 @@
+tags:
+  - User
+summary: report fake/spam user to admin
+operationId: reportUser
+description: |
+  Users can report other fake/spam user to admin.
+  They need to provide proper reasons why they think the other user is harmful or fake/spam account.
+
+  If the number of report counts spikes, the reported user is temporarily lost access to the website during investigation.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../components/parameters/username.yaml
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../../components/schemas/report.yaml
+responses:
+  '201':
+    description: Successfully reported the user.
+  '400':
+    description: Already Reported the user.
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the user by username.

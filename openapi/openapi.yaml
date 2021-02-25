@@ -45,14 +45,16 @@ paths:
   /user:
     post: # New user
       $ref: paths/user/post.yaml
+    get: # Search Users - Also need to handle promotion (verified user)
+      $ref: paths/user/get.yaml
   /user/{username}:
     get: # Retrieve user information
       $ref: paths/user/{username}/get.yaml
     put: # Update user information
       $ref: paths/user/{username}/put.yaml
-  /user/{username}/new-password:
+  /user/new-password/{username}:
     post: # Change Password
-      $ref: paths/user/{username}/new-password/post.yaml
+      $ref: paths/user/new-password/{username}/post.yaml
   /user/verify-email:
     post: # Create verification ticket
       $ref: paths/user/verify-email/post.yaml
@@ -71,6 +73,22 @@ paths:
   /user/password-reset/{ticketID}:
     put: # Use password reset ticket to reset the password
       $ref: paths/user/password-reset/{ticketID}/put.yaml
+  /user/report/{username}:
+    post: # Report fake/spam user to admin
+      $ref: paths/user/report/{username}/post.yaml
+  /user/promote:
+    get: # get instant-promote challenges
+      $ref: paths/user/promote/get.yaml
+  /user/promote/challenge-answer:
+    post: # send the answer of challenges, get the result back.
+      $ref: paths/user/promote/challenge-answer/post.yaml
+  /user/promote/{username}:
+    post: # Other user to upvote this user to be promoted (verify as a real alumni).
+      $ref: paths/user/promote/{username}/post.yaml
+    get: # retrieve list of upvoters.
+      $ref: paths/user/promote/{username}/get.yaml
+    delete: # Cancel upvote
+      $ref: paths/user/promote/{username}/delete.yaml
   # board APIs
   /board:
     post: # Make new post and write

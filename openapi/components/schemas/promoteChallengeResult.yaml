@@ -1,0 +1,8 @@
+type: object
+properties:
+  result:
+    type: boolean
+required:
+  - result
+example:
+  result: false

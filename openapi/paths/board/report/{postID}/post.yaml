@@ -1,6 +1,6 @@
 tags:
   - Board
-summary: Report harmful article to admin.
+summary: Report harmful article to admin
 operationId: reportPost
 description: |
   Users can report harmful article; they need to provide proper reasons why they think the article is harmful.
