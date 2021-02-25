@@ -1,0 +1,18 @@
+type: array
+items:
+  $ref: promoteQuestion.yaml
+example:
+  - title: "What is the city that we did not go during the field trip to USA?"
+    choicesList:
+      - Boston, MA
+      - New York City, NY
+      - Atlanta, GA
+      - New Haven, CT
+      - Philadelphia, PA
+  - title: "What country did we visited for a travel?"
+    choicesList:
+      - Taipei, Taiwan
+      - Tokyo, Japan
+      - Qingdao, China
+      - Singapore
+      - Bangkok, Thailand

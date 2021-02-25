@@ -76,11 +76,11 @@ paths:
   /user/report/{username}:
     post: # Report fake/spam user to admin
       $ref: paths/user/report/{username}/post.yaml
-  # /user/promote:
-  #   get: # TODO: get instant-promote challenges
-  #     $ref:
+  /user/promote:
+    get: # get instant-promote challenges
+      $ref: paths/user/promote/get.yaml
   #   post: # TODO: send the answer of challenges, get the result back.
-  #     $ref:
+  #     $ref: paths/user/promote/post.yaml
   /user/promote/{username}:
     post: # Other user to upvote this user to be promoted (verify as a real alumni).
       $ref: paths/user/promote/{username}/post.yaml

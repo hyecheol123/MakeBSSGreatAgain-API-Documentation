@@ -1,0 +1,26 @@
+type: object
+properties:
+  question:
+    type: string
+  choicesList:
+    type: array
+    minItems: 5
+    maxItems: 5
+    items:
+      - type: object
+        properties:
+          choice:
+            type: string
+        required:
+          - choice
+required:
+  - question
+  - choicesList
+example:
+  title: "What is the city that we did not go during the field trip to USA?"
+  choicesList:
+    - Boston, MA
+    - New York City, NY
+    - Atlanta, GA
+    - New Haven, CT
+    - Philadelphia, PA

@@ -1,19 +1,22 @@
 tags:
   - User
-summary: Get the information of current promote challenge
-operationId: listofPromote
+summary: Get list of challenge questions for approval
+operationId: listPromoteChallengeQuestions
 description: |
-  Show the list of instant-promote challenges.
+  Get list of challenge questions that let user to instantly approved as an alumni.
+
+  Only new users can do the challenge once.
+  If the approved user or new user that already consumed their attempt, it will throw `400` error.
 security:
   - accessToken: []
 responses:
   '200':
-    description: Successfully retrieve the challenge
+    description: Successfully retrieve the challenge question lists
     content:
       application/json:
         schema:
-          $ref: ../../../components/schemas/promoteList.yaml
+          $ref: ../../../components/schemas/promoteQuestionList.yaml
+  '400':
+    description: User already verified or failed the challenge
   '401':
-    $ref: ../../../../components/responses/unauthorized.yaml
-  '404':
-    description: Cannot find the promote.
+    $ref: ../../../components/responses/unauthorized.yaml
