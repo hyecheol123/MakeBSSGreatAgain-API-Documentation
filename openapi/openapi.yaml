@@ -119,9 +119,9 @@ paths:
     post: # Report harmful comment to admin
       $ref: paths/comment/report/{commentID}/post.yaml
   # Notification API
-#  /notification:
-#    post: # Create new notification
-#      $ref:
+  /notification:
+    post: # Create new notification
+      $ref: paths/notification/post.yaml
 #    get: # List notifications
 #      $ref:
 #  /notification/{notificationID}:
