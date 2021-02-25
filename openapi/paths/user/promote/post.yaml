@@ -1,0 +1,14 @@
+tags:
+  - User
+summary: Create a new challenge
+operationId: createPromote
+description: |
+  Admin creates challenges that can prove to user as a verified BSS alumni.
+  Upvoters can check it.
+security:
+  - accessToken: []
+responses:
+  '201':
+    description: Successfully created a challenge. Are you BSS alumni?
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml

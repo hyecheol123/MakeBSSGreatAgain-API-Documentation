@@ -1,0 +1,61 @@
+tags:
+  - User
+summary: Search users
+operationId: searchUser
+description: |
+  List up users with matching search criteria.
+  Only signed in user can search the article.
+
+  User can specify the search term with query string.
+  Supported options are:
+    - admissionYear
+    - name
+    - username
+    - verified
+  
+  Other options will be ignored but will not throw error.
+  The search result will be ordered by name.
+
+  50 results will be returned at most, user can search further by indicating page parameter in the query string.
+security:
+  - accessToken: []
+parameters:
+  - in: query
+    name: admissionYear
+    schema:
+      type: integer
+      minimum: 2002
+    description: Integer for admission year
+  - in: query
+    name: name
+    schema:
+      type: string
+    description: name of the user
+  - in: query
+    name: username
+    schema:
+      type: string
+    description: username uniquely indicating the user
+  - in: query
+    name: verified
+    schema:
+      type: boolean
+    description: |
+      Flag used to display unverified user.
+      Only verified user is displayed by default (default value of the flag is true).
+  - in: query
+    name: page
+    schema:
+      type: integer
+    description: Indicating the page number that used to navigate the search result.
+responses:
+  '200':
+    description: Return search result
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/userList.yaml
+  '400':
+    description: Bad requests - User need to recheck the parameters
+  '401':
+    $ref: ../../components/responses/unauthorized.yaml

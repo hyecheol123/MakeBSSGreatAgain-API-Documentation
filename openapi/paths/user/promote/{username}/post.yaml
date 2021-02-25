@@ -1,0 +1,22 @@
+tags:
+  - User
+summary: Suggest the user as a real alumni
+operationId: voteUserPromotion
+description: |
+  Users have authority to help admins to identify real alumni.
+  They can upvote the other user as alumni of BSS.
+
+  If the upvotes the new user received exceed threshold, the user is considered as a verified BSS alumni.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../components/parameters/username.yaml
+responses:
+  '201':
+    description: Successfully upvoted the new user.
+  '400':
+    description: User already upvoted the user / User already verified
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find the user by given username.

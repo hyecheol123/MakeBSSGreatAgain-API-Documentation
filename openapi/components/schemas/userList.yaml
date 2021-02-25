@@ -1,0 +1,17 @@
+type: array
+items:
+  - $ref: userinfo.yaml
+example:
+  - username: gildong123
+    admissionYear: 2015
+    nameKorean: 홍길동
+    nameEnglish: "Gildong Hong"
+    email: gildong.hong@example.com
+    phoneNumber:
+      countryCode: 82
+      number: 1012345678
+  - username: gilsoon123
+    admissionYear: 2014
+    nameKorean: 홍길순
+    nameEnglish: "Gilsoon Hong"
+    email: gilsoon.hong@example.com
