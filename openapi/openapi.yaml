@@ -140,8 +140,8 @@ paths:
   /notification:
     post: # Create new notification
       $ref: paths/notification/post.yaml
-#    get: # List notifications
-#      $ref:
+    get: # List notifications
+      $ref: paths/notification/get.yaml
 #  /notification/{notificationID}:
 #    put: # Indicate read
 #      $ref:

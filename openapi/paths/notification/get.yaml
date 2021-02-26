@@ -1,0 +1,20 @@
+tags:
+  - Notification
+summary: Retrieve list of notifications
+operationId: getNotificationList
+description: |
+  Retrieve list of notifications that has been created by [create new notification API calls](#operation/newNotification).
+  Result is ordered by most recently created date-time.
+
+  All read notifications will be removed after 7 days from read.
+security:
+  - accessToken: []
+responses:
+  '200':
+    description: Notification list returned
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/notificationList.yaml
+  '401':
+    $ref: ../../components/responses/unauthorized.yaml
