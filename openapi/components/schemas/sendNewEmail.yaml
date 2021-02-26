@@ -1,8 +1,10 @@
 type: object
 properties:
   to:
-    type: string
-    format: email
+    type: array
+    items:
+      - type: string
+        format: email
   title:
     type: string
   content:
@@ -13,6 +15,7 @@ required:
   - title
   - content
 example:
-  to: admin@bshs.or.kr
+  to:
+   - admin@bshs.or.kr
   title: "Hello MBGA"
   content: <p>Hello World!!</p>

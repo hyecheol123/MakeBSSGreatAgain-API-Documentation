@@ -148,11 +148,9 @@ paths:
   /notification/email:
     post: # Send email
       $ref: paths/notification/email/post.yaml
-#  /notification/email/daily-digest:
-#    post: # Send agreed user daily activity digest - only specified admin can use this API
+#  /notification/email/digest:
+#    post: # Send  user weekly activity digest - only specified admin can use this API
 #      $ref:
-#  /notification/email/weekly-digest:
-#    post: # Send agreed user weekly activity digest - only specified admin can use this API
 components:
   securitySchemes:
     idPassword:
