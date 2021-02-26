@@ -1,0 +1,26 @@
+tags:
+  - Notification
+summary: Send email
+operationId: sendEmail
+description: |
+  Send HTML formatted email to the user.
+
+  Note that this API is only accessible from other API servers.
+  Individual users, including admin, cannot call this API directly.
+security:
+  - accessToken: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../components/schemas/sendNewEmail.yaml
+responses:
+  '200':
+    description: Email Sent
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
+  '500':
+    description: Email Sent Fail

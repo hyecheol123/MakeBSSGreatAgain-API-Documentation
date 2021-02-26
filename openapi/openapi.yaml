@@ -145,9 +145,9 @@ paths:
   /notification/read/{objectID}:
     post: # Notification has been read
       $ref: paths/notification/read/{objectID}/post.yaml
-#  /notification/email:
-#    post: # Send email
-#      $ref:
+  /notification/email:
+    post: # Send email
+      $ref: paths/notification/email/post.yaml
 #  /notification/email/daily-digest:
 #    post: # Send agreed user daily activity digest - only specified admin can use this API
 #      $ref:
