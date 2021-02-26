@@ -142,9 +142,9 @@ paths:
       $ref: paths/notification/post.yaml
     get: # List notifications
       $ref: paths/notification/get.yaml
-#  /notification/{notificationID}:
-#    put: # Indicate read
-#      $ref:
+  /notification/read/{objectID}:
+    post: # Notification has been read
+      $ref: paths/notification/read/{objectID}/post.yaml
 #  /notification/email:
 #    post: # Send email
 #      $ref:
