@@ -1,0 +1,25 @@
+tags:
+  - Notification
+summary: send user weekly activity digest - only specfied admin can use this API
+operationId: sendWeeklydigest
+
+description: |
+  Send weekly digest to every user.
+
+  Note that this API is only accesible from other API servers.
+  Individual users, including admin, cannot call this API directly.
+
+security:
+  - acessToken: []
+
+# requestBody, parameter or something needed?
+
+responses:
+  '200':
+    description: Email sent
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
+  '500':
+    description: Email sent fail
