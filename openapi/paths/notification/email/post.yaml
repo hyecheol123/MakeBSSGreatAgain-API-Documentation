@@ -16,7 +16,7 @@ requestBody:
       schema:
         $ref: ../../../components/schemas/sendNewEmail.yaml
 responses:
-  '200':
+  '201':
     description: Email Sent
   '400':
     $ref: ../../../components/responses/missingField.yaml
