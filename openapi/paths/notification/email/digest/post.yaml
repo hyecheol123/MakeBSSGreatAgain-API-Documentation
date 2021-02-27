@@ -11,13 +11,13 @@ description: |
   Note that this API is only accesible from other API servers.
   Individual users, including admin, cannot call this API directly.
 security:
-  - acessToken: []
+  - accessToken: []
 responses:
   '201':
     description: Email sent
   '400':
-    $ref: ../../../components/responses/missingField.yaml
+    $ref: ../../../../components/responses/missingField.yaml
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    $ref: ../../../../components/responses/unauthorized.yaml
   '500':
     description: Email sent fail
