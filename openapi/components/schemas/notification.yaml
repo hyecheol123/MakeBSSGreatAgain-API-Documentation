@@ -1,0 +1,24 @@
+type: object
+properties:
+  timestamp:
+    type: string
+    format: datetime
+  actionType:
+    type: string
+    enum: [comment, reply]
+  targetObjectID:
+    type: string
+    format: postID/commentID
+  fromUsers:
+    type: array
+    items:
+      type: string
+      format: username
+  read:
+    type: boolean
+required:
+  - timestamp
+  - actionType
+  - targetObjectID
+  - fromUsers
+  - read

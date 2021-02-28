@@ -1,0 +1,19 @@
+tags:
+  - Notification
+summary: Read notification
+operationId: readNotification
+description: |
+  Indicate existing notification as read.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../components/parameters/objectID.yaml
+responses:
+  '201':
+    description: The notfication indicated as read.
+  '400':
+    description: Already read the notification.
+  '401':
+    $ref: ../../../../components/responses/missingField.yaml
+  '404':
+    description: Cannot find notification with given objectID

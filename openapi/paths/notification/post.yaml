@@ -1,0 +1,30 @@
+tags:
+  - Notification
+summary: Create new notification
+operationId: newNotification
+description: |
+  Create new notification that will be displayed when user logged in.
+
+  New comments and replies on the article/comment that the user wrote are subject to the notification.
+  The notifications will be grouped by postID or commentID based on the context of the notifications.
+  The timestamp and replier's/commenter's id will be saved as an array for each commentID or postID.
+
+  Note that this API is only accessible from other API servers.
+  Individual users, including admin, cannot call this API directly.
+security:
+  - accessToken: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../components/schemas/newNotification.yaml
+responses:
+  '201':
+    description: New notification created
+  '400':
+    $ref: ../../components/responses/missingField.yaml
+  '401':
+    $ref: ../../components/responses/unauthorized.yaml
+  '404':
+    description: Cannot find matching information with given information
