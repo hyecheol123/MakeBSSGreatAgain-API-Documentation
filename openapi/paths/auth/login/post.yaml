@@ -14,5 +14,7 @@ responses:
         $ref: ../../../components/headers/setCookieAccessToken.yaml
       "\0Set-Cookie":
         $ref: ../../../components/headers/setCookieRefreshToken.yaml
+  '400':
+    $ref: ../../../components/responses/missingField.yaml
   '401':
     $ref: ../../../components/responses/unauthorized.yaml
