@@ -17,6 +17,6 @@ responses:
   '201':
     description: Password successfully changed
   '400':
-    $ref: ../../../../components/responses/missingField.yaml
+    $ref: ../../../../components/responses/BadRequest.yaml
   '404':
     description: Cannot find user or password reset ticket with given information

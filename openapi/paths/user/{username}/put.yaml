@@ -31,7 +31,7 @@ responses:
         schema:
           $ref: ../../../components/schemas/userinfo.yaml
   '400':
-    $ref: ../../../components/responses/missingField.yaml
+    $ref: ../../../components/responses/BadRequest.yaml
   '401':
     $ref: ../../../components/responses/unauthorized.yaml
   '404':

@@ -25,6 +25,6 @@ responses:
             value:
               username: gil*****23
   '400':
-    $ref: ../../../components/responses/missingField.yaml
+    $ref: ../../../components/responses/BadRequest.yaml
   '404':
     description: Cannot find user with provided information
