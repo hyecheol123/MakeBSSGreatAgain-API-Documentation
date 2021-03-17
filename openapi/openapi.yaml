@@ -46,6 +46,16 @@ paths:
   /auth/password:
     put:
       $ref: paths/auth/password/put.yaml
+  # auth APIs - Admin Operations
+  /auth/admin/user:
+    post:
+      $ref: paths/auth/admin/user/post.yaml
+  /auth/admin/user/{username}:
+    delete:
+      $ref: paths/auth/admin/user/{username}/delete.yaml
+  /auth/admin/user/{username}/password:
+    put:
+      $ref: paths/auth/admin/user/{username}/password/put.yaml
   # user APIs
   /user:
     post: # New user

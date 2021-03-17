@@ -1,0 +1,29 @@
+tags:
+  - Auth
+summary: "Admin: Reset Password"
+operationId: resetPasswordAuthAdmin
+description: | 
+  Reset password of an existing user.
+  This API does not require user's current password.
+  Only new password is needed.
+
+  Only admin can run this API.
+security:
+  - accessToken: []
+parameters:
+  - $ref: ../../../../../../components/parameters/username.yaml
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../../../../components/schemas/newPassword.yaml
+responses:
+  '200':
+    description: 'Successfully Changed'
+  '400':
+    $ref: ../../../../../../components/responses/BadRequest.yaml
+  '401':
+    $ref: ../../../../../../components/responses/unauthorized.yaml
+  '404':
+    $ref: ../../../../../../components/responses/NotFound.yaml

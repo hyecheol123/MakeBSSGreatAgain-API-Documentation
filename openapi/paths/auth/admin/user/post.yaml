@@ -1,0 +1,22 @@
+tags:
+  - Auth
+summary: "Admin: Create New User"
+operationId: createNewUserAuthAdmin
+description: | 
+  Create new user account on the Auth API server once a new account created by User API.
+  Only used by admin accounts.
+security:
+  - accessToken: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../../components/schemas/newUserAuth.yaml
+responses:
+  '201':
+    description: User Successfully created
+  "400":
+    description: 'Bad Request / Duplicated Username'
+  '401':
+    $ref: ../../../../components/responses/unauthorized.yaml
