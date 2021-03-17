@@ -43,6 +43,9 @@ paths:
   /auth/renew:
     get:
       $ref: paths/auth/renew/get.yaml
+  /auth/password:
+    put:
+      $ref: paths/auth/password/put.yaml
   # user APIs
   /user:
     post: # New user
@@ -54,9 +57,6 @@ paths:
       $ref: paths/user/{username}/get.yaml
     put: # Update user information
       $ref: paths/user/{username}/put.yaml
-  /user/new-password/{username}:
-    post: # Change Password
-      $ref: paths/user/new-password/{username}/post.yaml
   /user/verify-email:
     post: # Create verification ticket
       $ref: paths/user/verify-email/post.yaml
