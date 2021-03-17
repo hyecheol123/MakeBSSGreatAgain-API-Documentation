@@ -23,4 +23,4 @@ responses:
         schema:
           $ref: ../../components/schemas/username.yaml
   '400':
-    $ref: ../../components/responses/missingField.yaml
+    $ref: ../../components/responses/BadRequest.yaml

@@ -14,6 +14,6 @@ responses:
   '201':
     description: Password reset link has been successfully requested
   '400':
-    $ref: ../../../components/responses/missingField.yaml
+    $ref: ../../../components/responses/BadRequest.yaml
   '404':
     description: Cannot find user with provided information

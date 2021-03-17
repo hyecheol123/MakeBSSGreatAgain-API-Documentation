@@ -23,7 +23,7 @@ responses:
   '201':
     description: New notification created
   '400':
-    $ref: ../../components/responses/missingField.yaml
+    $ref: ../../components/responses/BadRequest.yaml
   '401':
     $ref: ../../components/responses/unauthorized.yaml
   '404':

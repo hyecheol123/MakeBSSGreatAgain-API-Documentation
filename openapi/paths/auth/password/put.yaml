@@ -1,0 +1,22 @@
+tags:
+  - Auth
+summary: Change User's Password
+operationId: changePassword
+description: |
+  User to change the password by using the refresh token and current password.
+  Logout from the other sessions once the change password operation success.
+security:
+  - refreshToken: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../../components/schemas/changePassword.yaml
+responses:
+  '200':
+    description: 'Successfully changed password'
+  '400':
+    $ref: ../../../components/responses/BadRequest.yaml
+  '401':
+    $ref: ../../../components/responses/unauthorized.yaml
