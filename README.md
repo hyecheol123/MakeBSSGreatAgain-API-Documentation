@@ -1,5 +1,7 @@
 # Make BSS Great Again OpenAPI Definition
 
+Site URL: https://hyecheol123.github.io/MakeBSSGreatAgain-API-Documentation/
+
 This repository contains [ReDoc](https://github.com/Redocly/redoc) resources (complying OpenAPI specification) for the RESTful API documentation of **Make BSS Great Again** project.  
 With the project, we are going to build the **alumni website of Busan Science High School**.  
 List of features and API specification are under review.
