@@ -56,6 +56,13 @@ paths:
   /auth/admin/user/{username}/password:
     put:
       $ref: paths/auth/admin/user/{username}/password/put.yaml
+  # auth APIs - Server Health Checks
+  /auth/alive:
+    get:
+      $ref: paths/auth/alive/get.yaml
+  /auth/alive/ready:
+    get:
+      $ref: paths/auth/alive/ready/get.yaml
   # user APIs
   /user:
     post: # New user
