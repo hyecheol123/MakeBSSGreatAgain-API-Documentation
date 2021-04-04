@@ -1,0 +1,10 @@
+tags:
+  - Auth
+summary: "Health Check: Server Alive"
+operationId: authServerAlive
+description: |
+  Check whether the webserver is alive or not.  
+  This API only be accesible through the private network.
+responses:
+  '200':
+    description: Server Alive
