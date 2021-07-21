@@ -10,7 +10,7 @@ info:
     email: hyecheol123@gmail.com
     url: 'http://bshs.or.kr/contact'
   x-logo:
-    url: 'https://redocly.github.io/openapi-template/logo.png'
+    url: 'logo.svg'
   description:
     $ref: description/main.md
 externalDocs:
