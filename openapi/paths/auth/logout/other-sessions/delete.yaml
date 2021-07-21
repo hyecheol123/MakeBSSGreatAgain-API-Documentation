@@ -4,10 +4,19 @@ summary: Logout other sessions
 operationId: logoutOtherSessions
 description: | 
   Logout from all other sessions, except for current session
+
+  May get new refreshToken if current token is about to expire
 security:
   - refreshToken: []
 responses:
   '200':
     description: Successfully logged out from other sessions
+    headers:
+      Set-Cookie:
+        description: "Set RefreshToken"
+        schema:
+          type: string
+          readOnly: true
+          example: "X-REFRESH-TOKEN=abcdef1234; Domain=api.bshs.or.kr; Path=/auth; Secure; HttpOnly; SameSite=Strict; Expires=<Expire Date>"
   '401':
     description: Authentication information is missing or invalid

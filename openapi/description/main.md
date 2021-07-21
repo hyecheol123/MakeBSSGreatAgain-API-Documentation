@@ -9,5 +9,10 @@ As of now, we do not support multi-factor authentication, but before we service 
 
 Details of the Security Schemes are described below.
 
+# Notes
+- Auth API Completed
+- User API
+  - POST /user Completed
+
 # SecuritySchemes
 <SecurityDefinitions />

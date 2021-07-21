@@ -9,6 +9,8 @@ description: |
   When user fail to provide correct current password or
   the new password does not comply with the password rule,
   it throws 400 BadRequest Error.
+
+  May get new refreshToken if current token is about to expire
 security:
   - refreshToken: []
 requestBody:
@@ -31,6 +33,13 @@ requestBody:
 responses:
   '200':
     description: 'Successfully changed password'
+    headers:
+      Set-Cookie:
+        description: "Set RefreshToken"
+        schema:
+          type: string
+          readOnly: true
+          example: "X-REFRESH-TOKEN=abcdef1234; Domain=api.bshs.or.kr; Path=/auth; Secure; HttpOnly; SameSite=Strict; Expires=<Expire Date>"
   '400':
     description: Bad Request / Suspended User
   '401':
