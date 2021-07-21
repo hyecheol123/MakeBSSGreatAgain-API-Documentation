@@ -16,8 +16,8 @@ responses:
   '201':
     description: Email sent
   '400':
-    $ref: ../../../../components/responses/BadRequest.yaml
+    description: Bad Request
   '401':
-    $ref: ../../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid
   '500':
     description: Email sent fail

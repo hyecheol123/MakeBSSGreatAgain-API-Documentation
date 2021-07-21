@@ -33,10 +33,36 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/commentList.yaml
+          type: array
+          items:
+            type: object
+            properties:
+              commentID:
+                type: string
+                format: commentID
+              postID:
+                type: string
+                format: postID
+              content:
+                type: string
+              parentComment:
+                type: string
+                format: commentID
+            required:
+              - postID
+              - content
+              - commentID
+          example:
+            - commentID: COMMENTIDURLSAFEBASE64STRING
+              postID: BASE64URLPOSTID1
+              content: "Hello World - This is a comment."
+            - commentID: COMMENTIDURLSAFE
+              postID: BASE64URLPOSTID1
+              content: "Hello World - This is a comment."
+              parentComment: COMMENTIDURLSAFEBASE64STRING
   '400':
-    $ref: ../../components/responses/BadRequest.yaml
+    description: Bad Request
   '401':
-    $ref: ../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid
   '404':
     description: Cannot find a matching article with given postID

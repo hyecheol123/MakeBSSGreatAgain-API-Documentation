@@ -13,15 +13,23 @@ security:
 requestBody:
   required: true
   content:
-    appication/json:
+    application/json:
       schema:
-        $ref: ../../../components/schemas/email.yaml
+        type: object
+        properties:
+          email:
+            type: string
+            format: email
+        required:
+          - email
+        example:
+          email: gildong.hong@example.com
 responses:
   '201':
     description: New verification ticket created and sent to the email
   '400':
-    $ref: ../../../components/responses/BadRequest.yaml
+    description: Bad Request
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid
   '404':
     description: Provided email does not exist in the user's profile

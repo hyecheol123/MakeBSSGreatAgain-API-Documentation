@@ -8,17 +8,43 @@ description: |
 security:
   - accessToken: []
 parameters:
-  - $ref: ../../../../components/parameters/username.yaml
+  - name: username
+    in: path
+    description: Username indicating user account. Same as user's login ID.
+    required: true
+    schema:
+      type: string
 responses:
   '200':
     description: Successfully retrieve the list of upvoters
     content:
       application/json:
         schema:
-          $ref: ../../../../components/schemas/upvoterList.yaml
+          type: array
+          items:
+            - type: object
+              properties:
+                username:
+                  type: string
+                admissionYear:
+                  type: number
+                  minimum: 1
+                nameKorean:
+                  type: string
+              required:
+                - username
+                - admissionYear
+                - nameKorean
+          example:
+            - username: gildong123
+              admissionYear: 2015
+              nameKorean: 홍길동
+            - username: gilsoon123
+              admissionYear: 2014
+              nameKorean: 홍길순
   '400':
     description: User already verified
   '401':
-    $ref: ../../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid
   '404':
     description: Cannot find the user by given username.

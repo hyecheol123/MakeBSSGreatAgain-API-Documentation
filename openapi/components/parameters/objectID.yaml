@@ -1,6 +1,0 @@
-name: objectID
-in: path
-description: either postID or commentID that indicating the object that related to the notification.
-required: true
-schema:
-  type: string

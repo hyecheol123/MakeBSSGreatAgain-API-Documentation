@@ -7,13 +7,18 @@ description: |
 security:
   - accessToken: []
 parameters:
-  - $ref: ../../../../components/parameters/objectID.yaml
+  - name: objectID
+    in: path
+    description: either postID or commentID that indicating the object that related to the notification.
+    required: true
+    schema:
+      type: string
 responses:
   '201':
     description: The notfication indicated as read.
   '400':
     description: Already read the notification.
   '401':
-    $ref: ../../../../components/responses/BadRequest.yaml
+    description: Bad Request
   '404':
     description: Cannot find notification with given objectID

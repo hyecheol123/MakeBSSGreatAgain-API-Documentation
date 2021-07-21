@@ -4,8 +4,24 @@ summary: Login
 operationId: login
 description: | 
   Login with username and password to retrieve access/refresh tokens
-security:
-  - idPassword: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          username:
+            type: string
+          password:
+            type: string
+        required:
+          - username
+          - password
+        example:
+          username: 'username'
+          password: 'password'
+        additionalProperties: false
 responses:
   '200':
     description: Successfully signed in
@@ -23,8 +39,6 @@ responses:
           readOnly: true
           example: "X-REFRESH-TOKEN=abcdef1234; Domain=api.bshs.or.kr; Path=/auth; Secure; HttpOnly; SameSite=Strict; Expires=<Expire Date>"
   '400':
-    description: Bad Request
-  "\0400":
-    description: "Suspended User"
+    description: Bad Request / Suspended User
   '401':
     description: Authentication information is missing or invalid

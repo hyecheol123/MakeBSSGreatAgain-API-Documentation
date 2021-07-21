@@ -11,20 +11,42 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: ../../../components/schemas/usernameSearchForm.yaml
+        type: object
+        properties:
+          name:
+            type: string
+          email:
+            type: string
+            format: email
+          admissionYear:
+            type: number
+            minimum: 1
+        required:
+          - name
+          - email
+          - admissionYear
+        example:
+          name: 홍길동
+          email: gildong.hong@example.com
+          admissionYear: 2015
 responses:
   '200':
     description: Found user with give information
     content:
       application/json:
         schema:
-          $ref: ../../../components/schemas/username.yaml
+          type: object
+          properties:
+            username:
+              type: string
+          required:
+            - username
         examples:
           gildong123:
             summary: gildong123
             value:
               username: gil*****23
   '400':
-    $ref: ../../../components/responses/BadRequest.yaml
+    description: Bad Request
   '404':
     description: Cannot find user with provided information

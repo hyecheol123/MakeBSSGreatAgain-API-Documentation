@@ -10,11 +10,16 @@ description: |
 security:
   - accessToken: []
 parameters:
-  - $ref: ../../../../components/parameters/categoryName.yaml
+  - name: categoryName
+    in: path
+    description: Name of the category.
+    required: true
+    schema:
+      type: string
 responses:
   '200':
     description: Successfully deleted the category.
   '401':
-    $ref: ../../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid
   '404':
     description: Cannot find the matching category with given `categoryName`.

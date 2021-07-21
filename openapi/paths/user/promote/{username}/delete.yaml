@@ -11,13 +11,18 @@ description: |
 security:
   - accessToken: []
 parameters:
-  - $ref: ../../../../components/parameters/username.yaml
+  - name: username
+    in: path
+    description: Username indicating user account. Same as user's login ID.
+    required: true
+    schema:
+      type: string
 responses:
   '201':
     description: Successfully canceled upvote for the new user.
   '400':
     description: Did not recommended the user / User already verified
   '401':
-    $ref: ../../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid
   '404':
     description: Cannot find the user by given username.

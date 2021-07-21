@@ -12,11 +12,18 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: ../../../components/schemas/category.yaml
+        type: object
+        properties:
+          categoryName:
+            type: string
+        required:
+          - categoryName
+        example:
+          categoryName: Group1
 responses:
   '201':
     description: New category has been Successfully created.
   '400':
     description: This category has already been created.
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalids

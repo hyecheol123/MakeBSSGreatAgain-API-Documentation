@@ -9,11 +9,32 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: ../../../components/schemas/passwordResetRequestForm.yaml
+        type: object
+        properties:
+          name:
+            type: string
+          email:
+            type: string
+            format: email
+          admissionYear:
+            type: number
+            minimum: 1
+          username:
+            type: string
+        required:
+          - name
+          - email
+          - admissionYear
+          - username
+        example:
+          name: 홍길동
+          email: gildong.hong@example.com
+          admissionYear: 13
+          username: gildong123
 responses:
   '201':
     description: Password reset link has been successfully requested
   '400':
-    $ref: ../../../components/responses/BadRequest.yaml
+    description: Bad Request
   '404':
     description: Cannot find user with provided information

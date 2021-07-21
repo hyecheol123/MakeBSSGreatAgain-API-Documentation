@@ -16,23 +16,85 @@ description: |
 security:
   - accessToken: []
 parameters:
-  - $ref: ../../../components/parameters/username.yaml
+  - name: username
+    in: path
+    description: Username indicating user account. Same as user's login ID.
+    required: true
+    schema:
+      type: string
 requestBody:
   required: true
   content:
-    appication/json:
+    application/json:
       schema:
-        $ref: ../../../components/schemas/userinfoModify.yaml
+        type: object
+        properties:
+          nameEnglish:
+            type: string
+          phoneNumber:
+            type: object
+            properties:
+              countryCode:
+                type: number
+              number:
+                type: number
+            required:
+              - countryCode
+              - number
+          newEmail:
+            type: string
+            format: email
+        example:
+          nameEnglish: "Gildong Hong"
+          newEmail: gildong.hong.new@example.com
+          phoneNumber:
+            countryCode: 82
+            number: 1012345678
 responses:
   '200':
     description: Found user information with given username
     content:
       application/json:
         schema:
-          $ref: ../../../components/schemas/userinfo.yaml
+          type: object
+          properties:
+            username:
+              type: string
+            email:
+              type: string
+              format: email
+            admissionYear:
+              type: number
+              minimum: 1
+            nameKorean:
+              type: string
+            nameEnglish:
+              type: string
+            phoneNumber:
+              type: object
+              properties:
+                countryCode:
+                  type: number
+                number:
+                  type: number
+              required:
+                - countryCode
+                - number
+          required:
+            - nameKorean
+            - nameEnglish
+          example:
+            username: gildong123
+            admissionYear: 13
+            nameKorean: 홍길동
+            nameEnglish: "Gildong Hong"
+            email: gildong.hong@example.com
+            phoneNumber:
+              countryCode: 82
+              number: 1012345678
   '400':
-    $ref: ../../../components/responses/BadRequest.yaml
+    description: Bad Request
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid
   '404':
     description: Cannot find the username

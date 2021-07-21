@@ -15,8 +15,50 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../../components/schemas/promoteQuestionList.yaml
+          type: array
+          items:
+            - type: object
+              properties:
+                question:
+                  type: string
+                choicesList:
+                  type: array
+                  minItems: 5
+                  maxItems: 5
+                  items:
+                    - type: object
+                      properties:
+                        choice:
+                          type: string
+                      required:
+                        - choice
+              required:
+                - question
+                - choicesList
+              example:
+                question: "What is the city that we did not go during the field trip to USA?"
+                choicesList:
+                  - Boston, MA
+                  - New York City, NY
+                  - Atlanta, GA
+                  - New Haven, CT
+                  - Philadelphia, PA
+          example:
+            - question: "What is the city that we did not go during the field trip to USA?"
+              choicesList:
+                - Boston, MA
+                - New York City, NY
+                - Atlanta, GA
+                - New Haven, CT
+                - Philadelphia, PA
+            - question: "What country did we visited for a travel?"
+              choicesList:
+                - Taipei, Taiwan
+                - Tokyo, Japan
+                - Qingdao, China
+                - Singapore
+                - Bangkok, Thailand
   '400':
     description: User already verified or failed the challenge
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid

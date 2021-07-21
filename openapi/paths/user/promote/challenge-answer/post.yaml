@@ -14,15 +14,43 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: ../../../../components/schemas/promoteChallengeAnswer.yaml
+        type: object
+        properties:
+          answerList:
+            type: array
+            items:
+              - type: object
+                properties:
+                  question:
+                    type: string
+                  answer:
+                    type: string
+                required:
+                  - properties
+                  - answer
+        required:
+          - answerList
+        example:
+          answerList:
+          - question: "What is the city that we did not go during the field trip to USA?"
+            answer: "Atlanta, GA"
+          - question: "What country did we visited for a travel?"
+            answer: "Tokyo, Japan"
 responses:
   '200':
     description: Challenge Result
     content:
       application/json:
         schema:
-          $ref: ../../../../components/schemas/promoteChallengeResult.yaml
+          type: object
+          properties:
+            result:
+              type: boolean
+          required:
+            - result
+          example:
+            result: false
   '400':
     description: User does not have challenge information
   '401':
-    $ref: ../../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid

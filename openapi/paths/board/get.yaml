@@ -50,6 +50,37 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/articleSearchResult.yaml
+          type: array
+          items:
+            type: object
+            properties:
+              postID:
+                type: string
+              title:
+                type: string
+              writer:
+                type: string
+              createdDate:
+                type: string
+                format: date
+              numComments:
+                type: integer
+            required:
+              - postID
+              - title
+              - writer
+              - createdDate
+              - numComments
+          example:
+            - postID: BASE64URLPOSTID1
+              title: Hello World!!
+              writer: java
+              createdDate: 2020-02-21
+              numComments: 40
+            - POSTID: ID39BASE64URL
+              title: Hello BSS!!
+              writer: alumniBSS
+              createdDate: 2021-02-22
+              numcomments: 100
   '401':
-    $ref: ../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid

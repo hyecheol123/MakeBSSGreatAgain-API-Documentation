@@ -15,15 +15,38 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: ../../components/schemas/article.yaml
+        type: object
+        properties:
+          title:
+            type: string
+          category:
+            type: string
+          content:
+            type: string
+            format: HTML
+        required:
+          - title
+          - content
+        example:
+          title: "Hello World."
+          category: "Group 1"
+          content: "<p>Hello World!!</p>"
 responses:
   '200':
     description: New Post Created
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/articleURL.yaml
+          type: object
+          properties:
+            articleURL:
+              type: string
+              format: URL
+          required:
+            - articleURL
+          example:
+            articleURL: "https://bshs.or.kr/3D6DCJKDSL"
   '400':
-    $ref: ../../components/responses/BadRequest.yaml
+    description: Bad Request
   '401':
-    $ref: ../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid

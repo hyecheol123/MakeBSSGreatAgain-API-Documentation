@@ -54,8 +54,68 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/userList.yaml
+          type: array
+          items:
+            type: object
+            properties:
+              username:
+                type: string
+              password: 
+                type: string
+              admissionYear:
+                type: integer
+                minimum: 1
+              legalName:
+                type: string
+              nickname:
+                type: string
+              email:
+                type: string
+                format: email
+              phoneNumber:
+                type: object
+                properties:
+                  countryCode:
+                    type: number
+                  phoneNumber:
+                    type: number
+                required:
+                  - countryCode
+                  - phoneNumber
+                additionalProperties: false
+              affiliation: 
+                type: object
+                properties:
+                  schoolCompany:
+                    type: string
+                  majorDepartment:
+                    type: string
+                required:
+                  - schoolCompany
+                  - majorDepartment
+                additionalProperties: false
+            required:
+              - username
+              - password
+              - admissionYear
+              - legalName
+              - email
+            additionalProperties: false
+          example:
+            - username: gildong123
+              admissionYear: 2015
+              nameKorean: 홍길동
+              nameEnglish: "Gildong Hong"
+              email: gildong.hong@example.com
+              phoneNumber:
+                countryCode: 82
+                number: 1012345678
+            - username: gilsoon123
+              admissionYear: 2014
+              nameKorean: 홍길순
+              nameEnglish: "Gilsoon Hong"
+              email: gilsoon.hong@example.com
   '400':
     description: Bad requests - User need to recheck the parameters
   '401':
-    $ref: ../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid

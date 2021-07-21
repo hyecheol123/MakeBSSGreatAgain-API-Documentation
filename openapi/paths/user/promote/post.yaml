@@ -11,4 +11,4 @@ responses:
   '201':
     description: Successfully created a challenge. Are you BSS alumni?
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid

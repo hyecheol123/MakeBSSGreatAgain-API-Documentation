@@ -11,11 +11,32 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: ../../../../components/schemas/usernameEmailForm.yaml
+        type: object
+        properties:
+          name:
+            type: string
+          email:
+            type: string
+            format: email
+          admissionYear:
+            type: number
+            minimum: 1
+          maskedUsername:
+            type: string
+        required:
+          - name
+          - email
+          - admissionYear
+          - maskedUsername
+        example:
+          name: 홍길동
+          email: gildong.hong@example.com
+          admissionYear: 13
+          maskedUsername: gil*****23
 responses:
   '201':
     description: Username email successfully requested
   '400':
-    $ref: ../../../../components/responses/BadRequest.yaml
+    description: Bad Request
   '404':
     description: Cannot find user with provided information

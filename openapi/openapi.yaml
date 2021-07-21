@@ -28,7 +28,7 @@ tags:
   - name: Notification
     description: Notification related operations
 servers:
-  - url: 'https://api.bshs.or.kr/'
+  - url: 'https://api.bshs.or.kr'
 paths:
   # auth APIs
   /auth/login:
@@ -153,14 +153,6 @@ paths:
       $ref: paths/notification/email/digest/post.yaml
 components:
   securitySchemes:
-    idPassword:
-      type: http
-      scheme: basic
-      description: |
-        Basic Authentication will be used to **retrieve tokens**.
-        For security reasons, the maximum number of trying signin will be limited.
-        If user failed to login 5 consecutive times, the account will be locked.
-        It requires `Authorization` headers that contains the word `Basic` followed by a space and a base64-encoded string `username:password`.
     accessToken:
       type: apiKey
       in: cookie

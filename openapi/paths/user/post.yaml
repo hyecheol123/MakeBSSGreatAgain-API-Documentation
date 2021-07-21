@@ -9,18 +9,71 @@ description: |
   Also accept nickname, phone number, and affiliation as optional fields
   
   Email will be verified after the creation of the account, while the phone number will not be verified.
+
+  username and password that do not comply with rules may lead 400 Bad Request error.
 requestBody:
   required: true
   content:
     application/json:
       schema:
-        $ref: ../../components/schemas/newAccount.yaml
+        type: object
+        properties:
+          username:
+            type: string
+          password: 
+            type: string
+          admissionYear:
+            type: integer
+            minimum: 1
+          legalName:
+            type: string
+          nickname:
+            type: string
+          email:
+            type: string
+            format: email
+          phoneNumber:
+            type: object
+            properties:
+              countryCode:
+                type: number
+              phoneNumber:
+                type: number
+            required:
+              - countryCode
+              - phoneNumber
+            additionalProperties: false
+          affiliation: 
+            type: object
+            properties:
+              schoolCompany:
+                type: string
+              majorDepartment:
+                type: string
+            required:
+              - schoolCompany
+              - majorDepartment
+            additionalProperties: false
+        required:
+          - username
+          - password
+          - admissionYear
+          - legalName
+          - email
+        additionalProperties: false
 responses:
   '200':
     description: New User Created
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/username.yaml
+          type: object
+          properties:
+            username:
+              type: string
+          required:
+            - username
+          example:
+            username: "gildong123"
   '400':
-    $ref: ../../components/responses/BadRequest.yaml
+    description: Bad Request

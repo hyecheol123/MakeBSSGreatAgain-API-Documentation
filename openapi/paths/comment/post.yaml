@@ -16,13 +16,29 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: ../../components/schemas/comment.yaml
+        type: object
+        properties:
+          postID:
+            type: string
+            format: postID
+          content:
+            type: string
+          parentComment:
+            type: string
+            format: commentID
+        required:
+          - postID
+          - content
+        example:
+          postID: BASE64URLPOSTID1
+          content: "Hello World - This is a comment."
+          parentComment: COMMENTIDURLSAFEBASE64STRING
 responses:
   '201':
     description: Successfully created a new comment
   '400':
-    $ref: ../../components/responses/BadRequest.yaml
+    description: Bad Request
   '401':
-    $ref: ../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid
   '404':
     description: Cannot find assoicated post with given postID or parent's comment with given commentID.

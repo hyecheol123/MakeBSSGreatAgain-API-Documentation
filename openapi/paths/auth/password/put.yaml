@@ -32,8 +32,6 @@ responses:
   '200':
     description: 'Successfully changed password'
   '400':
-    description: Bad Request
-  "\0400":
-    description: "Suspended User"
+    description: Bad Request / Suspended User
   '401':
     description: Authentication information is missing or invalid

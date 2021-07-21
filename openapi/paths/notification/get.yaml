@@ -15,6 +15,49 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/notificationList.yaml
+          type: array
+          items:
+            type: object
+            properties:
+              timestamp:
+                type: string
+                format: datetime
+              actionType:
+                type: string
+                enum: [comment, reply]
+              targetObjectID:
+                type: string
+                format: postID/commentID
+              toUsers:
+                type: array
+                items:
+                  type: string
+                  format: username
+            required:
+              - timestamp
+              - actionType
+              - targetObjectID
+              - toUsers
+            example:
+              timestamp: 2017-07-21T17:32:28Z
+              actionType: comment
+              targetObjectID: BASE64URLPOSTID
+              toUser:
+                - gilsoon123
+          example:
+            - timestamp: 2017-07-21T17:32:28Z
+              actionType: comment
+              targetObjectID: BASE64URLPOSTID
+              fromUsers:
+                - gilsoon123
+                - gildong123
+              read: false
+            - timestamp: 2020-07-21T19:32:28Z
+              actionType: reply
+              targetObjectID: BASE64URLCOMMENTID
+              fromUsers:
+                - tomthecat
+                - jerrytherat
+              read: true
   '401':
-    $ref: ../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid

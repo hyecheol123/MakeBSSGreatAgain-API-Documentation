@@ -12,6 +12,18 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../../components/schemas/categoryList.yaml
+          type: array
+          items:
+            type: object
+            properties:
+              categoryName:
+                type: string
+            required:
+              - categoryName
+            example:
+              categoryName: Group1
+          example:
+            - categoryName: Group1
+            - categoryName: Group2
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid

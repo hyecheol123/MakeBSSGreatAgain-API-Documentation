@@ -12,14 +12,45 @@ description: |
 security:
   - accessToken: []
 parameters:
-  - $ref: ../../../components/parameters/username.yaml
+  - name: username
+    in: path
+    description: Username indicating user account. Same as user's login ID.
+    required: true
+    schema:
+      type: string
 responses:
   '200':
     description: Found user information with given username
     content:
       application/json:
         schema:
-          $ref: ../../../components/schemas/userinfo.yaml
+          type: object
+          properties:
+            username:
+              type: string
+            email:
+              type: string
+              format: email
+            admissionYear:
+              type: number
+              minimum: 1
+            nameKorean:
+              type: string
+            nameEnglish:
+              type: string
+            phoneNumber:
+              type: object
+              properties:
+                countryCode:
+                  type: number
+                number:
+                  type: number
+              required:
+                - countryCode
+                - number
+          required:
+            - nameKorean
+            - nameEnglish
         examples:
           "owner of account":
             summary: Owner of account
@@ -41,6 +72,6 @@ responses:
               nameEnglish: "Gildong Hong"
               email: gildong.hong@example.com
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid
   '404':
     description: Cannot find the username
