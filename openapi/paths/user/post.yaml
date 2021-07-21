@@ -61,6 +61,19 @@ requestBody:
           - legalName
           - email
         additionalProperties: false
+        example:
+          username: gildong123
+          password: gildongpw1
+          admissionYear: 13
+          legalName: 홍길동
+          nickname: GildongTheGreat
+          email: gildong.hong@gmail.com
+          phoneNumber:
+            countryCode: 82
+            phoneNumber: 1012345678
+          affiliation:
+            schoolCompany: Busan Science High School
+            majorDepartment: Student
 responses:
   '200':
     description: New User Created
