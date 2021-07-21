@@ -5,9 +5,9 @@ operationId: newUser
 description: |
   Create a new user account.
 
-  Need username and password to access the account, admission year, name in both Korean and English, and email.
+  Need username and password to create the account, admission year, legal name, and email.
+  Also accept nickname, phone number, and affiliation as optional fields
   
-  User can also provide mobile phone number.
   Email will be verified after the creation of the account, while the phone number will not be verified.
 requestBody:
   required: true

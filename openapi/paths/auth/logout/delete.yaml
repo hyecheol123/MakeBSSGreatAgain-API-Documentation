@@ -11,8 +11,16 @@ responses:
     description: Successfully logged out
     headers:
       Set-Cookie:
-        $ref: ../../../components/headers/clearCookieAccessToken.yaml
+        description: Clear AccessToken
+        schema:
+          type: string
+          readOnly: true
+          example: "X-ACCESS-TOKEN=;"
       "\0Set-Cookie":
-        $ref: ../../../components/headers/clearCookieRefreshToken.yaml
+        description: Clear RefreshToken
+        schema:
+          type: string
+          readOnly: true
+          example: "X-REFRESH-TOKEN=;"
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid

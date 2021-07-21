@@ -5,6 +5,10 @@ operationId: changePassword
 description: |
   User to change the password by using the refresh token and current password.
   Logout from the other sessions once the change password operation success.
+
+  When user fail to provide correct current password or
+  the new password does not comply with the password rule,
+  it throws 400 BadRequest Error.
 security:
   - refreshToken: []
 requestBody:
@@ -12,11 +16,24 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: ../../../components/schemas/changePassword.yaml
+        type: object
+        properties:
+          currentPassword:
+            type: string
+          newPassword:
+            type: string
+        required:
+          - currentPassword
+          - newPassword
+        example:
+          currentPassword: "thisisprevpassword"
+          newPassword: "HelloWorld"
 responses:
   '200':
     description: 'Successfully changed password'
   '400':
-    $ref: ../../../components/responses/BadRequest.yaml
+    description: Bad Request
+  "\0400":
+    description: "Suspended User"
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid

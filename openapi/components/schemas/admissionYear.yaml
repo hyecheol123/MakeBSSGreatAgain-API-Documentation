@@ -3,8 +3,8 @@ properties:
   admissionYear:
     type: integer
     format: int32
-    minimum: 2002
+    minimum: 1
 required:
 - admissionYear
 example:
-  admissionYear: 2015
+  admissionYear: 12

@@ -28,7 +28,7 @@ tags:
   - name: Notification
     description: Notification related operations
 servers:
-  - url: 'https://bshs.or.kr/api/v1'
+  - url: 'https://api.bshs.or.kr/'
 paths:
   # auth APIs
   /auth/login:
@@ -46,23 +46,6 @@ paths:
   /auth/password:
     put:
       $ref: paths/auth/password/put.yaml
-  # auth APIs - Admin Operations
-  /auth/admin/user:
-    post:
-      $ref: paths/auth/admin/user/post.yaml
-  /auth/admin/user/{username}:
-    delete:
-      $ref: paths/auth/admin/user/{username}/delete.yaml
-  /auth/admin/user/{username}/password:
-    put:
-      $ref: paths/auth/admin/user/{username}/password/put.yaml
-  # auth APIs - Server Health Checks
-  /auth/alive:
-    get:
-      $ref: paths/auth/alive/get.yaml
-  /auth/alive/ready:
-    get:
-      $ref: paths/auth/alive/ready/get.yaml
   # user APIs
   /user:
     post: # New user

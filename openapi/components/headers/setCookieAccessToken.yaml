@@ -1,6 +1,0 @@
-description: |
-  Set AccessToken
-schema:
-  type: string
-  readOnly: true
-  example: "X-ACCESS-TOKEN=abcdef1234; Domain=bshs.or.kr; Path=/api/v1; Secure; HttpOnly; SameSite=Strict; Expires=<Expire Date>"

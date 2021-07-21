@@ -4,9 +4,9 @@ allOf:
   - $ref: admissionYear.yaml
   - type: object
     properties:
-      nameKorean:
+      legalName:
         type: string
-      nameEnglish:
+      nickname:
         type: string
       phoneNumber:
         $ref: phoneNumber.yaml
@@ -15,7 +15,7 @@ required:
   - nameEnglish
 example:
   username: gildong123
-  admissionYear: 2015
+  admissionYear: 13
   nameKorean: 홍길동
   nameEnglish: "Gildong Hong"
   email: gildong.hong@example.com

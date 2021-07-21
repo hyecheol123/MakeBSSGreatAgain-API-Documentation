@@ -12,8 +12,18 @@ responses:
     description: Successfully refreshed tokens
     headers:
       Set-Cookie:
-        $ref: ../../../components/headers/setCookieAccessToken.yaml
+        description: "Set AccessToken"
+        schema:
+          type: string
+          readOnly: true
+          example: "X-ACCESS-TOKEN=abcdef1234; Domain=api.bshs.or.kr; Path=/; Secure; HttpOnly; SameSite=Strict; Expires=<Expire Date>"
       "\0Set-Cookie":
-        $ref: ../../../components/headers/setCookieRefreshToken.yaml
+        description: "Set RefreshToken"
+        schema:
+          type: string
+          readOnly: true
+          example: "X-REFRESH-TOKEN=abcdef1234; Domain=api.bshs.or.kr; Path=/auth; Secure; HttpOnly; SameSite=Strict; Expires=<Expire Date>"
+  '400':
+    description: "Suspended User"
   '401':
-    $ref: ../../../components/responses/unauthorized.yaml
+    description: Authentication information is missing or invalid
