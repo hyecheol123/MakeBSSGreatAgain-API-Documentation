@@ -66,14 +66,10 @@ jobs:
       # Install Dependencies
       - name: Install Dependencies
         run: npm ci
-        env:
-          CI: true 
       
       # Build github pages
       - name: Build GitHub Pages
         run: npm run build-html
-        env:
-          CI: true
       
       # Commit
       - name: Deploy the HTML documents
@@ -83,5 +79,3 @@ jobs:
           git add docs/*
           git commit -m "GitHub Pages Created"
           git push
-        env:
-          CI: true
