@@ -1,15 +1,20 @@
 {
-  "name": "make-bss-great-again",
+  "name": "make-bss-great-again-api-documentation",
   "version": "1.0.0",
+  "description": "API Documentation for MakeBSSGreatAgain Project",
+  "author": "Hyecheol (Jerry) Jang",
+  "contributors": [],
+  "license": "BSD-3-Clause",
+  "keywords": [],
   "dependencies": {
-    "@redocly/openapi-cli": "^1.0.0-beta.31",
-    "redoc-cli": "^0.10.2"
+    "@redocly/openapi-cli": "^1.0.0-beta.54",
+    "redoc-cli": "^0.12.2"
   },
   "private": true,
   "scripts": {
     "start": "openapi preview-docs",
     "build-spec": "openapi bundle -o dist",
-    "build-html": "rm -rf docs/* && redoc-cli bundle openapi/openapi.yaml -o docs/index.html -t template/index.html && cp --verbose template/favicon.png docs/favicon.png",
+    "build-html": "rm -rf docs/* && redoc-cli bundle openapi/openapi.yaml -o docs/index.html -t template/index.html && cp --verbose template/favicon.png docs/favicon.png && cp --verbose template/logo.svg docs/logo.svg",
     "test": "openapi lint"
   }
 }
