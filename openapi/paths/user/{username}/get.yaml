@@ -6,7 +6,7 @@ description: |
   Retrieve user's information.  
 
   Returns user's public information if the other user try to retrieve the information.
-  If owner of the account try to retrieve the information, the private/public information associated with the user account will be returned.
+  If owner/admin of the account try to retrieve the information, the private/public information associated with the user account will be returned.
 
   This API requires username (provided as path parameter).
 security:
@@ -28,49 +28,94 @@ responses:
           properties:
             username:
               type: string
-            email:
-              type: string
-              format: email
             admissionYear:
               type: number
               minimum: 1
-            nameKorean:
+            legalName:
               type: string
-            nameEnglish:
+            nickname:
               type: string
+            email:
+              type: array
+              items:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    format: email
+                  primaryAddr:
+                    type: boolean
+                  verified:
+                    type: boolean
+                required:
+                  - email
+                  - primaryAddr
+                  - verified
             phoneNumber:
               type: object
               properties:
                 countryCode:
                   type: number
-                number:
+                phoneNumber:
                   type: number
               required:
                 - countryCode
-                - number
+                - phoneNumber
+            affiliation:
+              type: object
+              properties:
+                schoolCompany:
+                  type: string
+                majorDepartment:
+                  type: string
+              required:
+                - schoolCompany
+                - majorDepartment
           required:
-            - nameKorean
-            - nameEnglish
+            - username
+            - admissionYear
+            - legalName
+            - email
         examples:
-          "owner of account":
-            summary: Owner of account
+          "owner/admin account":
+            summary: owner/admin account
             value:
               username: gildong123
-              admissionYear: 2015
-              nameKorean: 홍길동
-              nameEnglish: "Gildong Hong"
-              email: gildong.hong@example.com
+              admissionYear: 13
+              legalName: 홍길동
+              nickname: "Gildong Hong"
+              email: 
+                - email: gildong.hong@example.com
+                  primaryAddr: true
+                  verified: true
+                - email: gildong123@gmail.com
+                  primaryAddr: false
+                  verified: true
+                - email: notverified@email.com
+                  primaryAddr: false
+                  verified: false
               phoneNumber:
                 countryCode: 82
-                number: 1012345678
+                phoneNumber: 1012345678
+              affiliation:
+                schoolCompany: Busan Science High School
+                majorDepartment: student
           "others":
             summary: Others
             value:
               username: gildong123
-              admissionYear: 2015
-              nameKorean: 홍길동
-              nameEnglish: "Gildong Hong"
-              email: gildong.hong@example.com
+              admissionYear: 13
+              legalName: 홍길동
+              nickname: "Gildong Hong"
+              email: 
+                - email: gildong.hong@example.com
+                  primaryAddr: true
+                  verified: true
+              affiliation:
+                schoolCompany: Busan Science High School
+                majorDepartment: student
+  '400':
+    description: Suspended User
   '401':
     description: Authentication information is missing or invalid
   '404':
