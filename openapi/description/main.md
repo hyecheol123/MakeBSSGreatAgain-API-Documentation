@@ -13,6 +13,8 @@ Details of the Security Schemes are described below.
 - Auth API Completed
 - User API
   - POST /user Completed
+  - GET /user/{username} completed
+  - PUT /user/{username} completed
 
 # SecuritySchemes
 <SecurityDefinitions />
