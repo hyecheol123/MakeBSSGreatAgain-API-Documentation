@@ -27,6 +27,7 @@ requestBody:
         required:
           - currentPassword
           - newPassword
+        additionalProperties: false
         example:
           currentPassword: "thisisprevpassword"
           newPassword: "HelloWorld"
