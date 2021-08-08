@@ -7,16 +7,25 @@ description: |
   Only signed in user can search the article.
 
   User can specify the search term with query string.
-  Supported options are:
+  Supported search Criteria are:
     - admissionYear
-    - name
-    - username
-    - verified
+    - legalName
+    - nickname
+    - whether the user verified or not
   
-  Other options will be ignored but will not throw error.
+  Other options will be ignored and will cause error.
   The search result will be ordered by name.
 
-  50 results will be returned at most, user can search further by indicating page parameter in the query string.
+  50 results will be returned at most, user can search further by indicating page parameter in the query string.  
+
+  As a return, user will get an array of objects containing information of
+    - username
+    - admissionYear
+    - legalName
+    - nickname
+    - primary/verified email
+    - whether user is verified or not
+    - schoolCompany information of affiliation
 security:
   - accessToken: []
 parameters:
@@ -24,25 +33,24 @@ parameters:
     name: admissionYear
     schema:
       type: integer
-      minimum: 2002
-    description: Integer for admission year
+      minimum: 1
+    description: Integer indicating admission year (1 means admitted on the year 2003)
   - in: query
-    name: name
+    name: legalName
     schema:
       type: string
-    description: name of the user
+    description: legalName of the user
   - in: query
-    name: username
+    name: nickname
     schema:
       type: string
-    description: username uniquely indicating the user
+    description: nickname of the user
   - in: query
     name: verified
     schema:
       type: boolean
     description: |
       Flag used to display unverified user.
-      Only verified user is displayed by default (default value of the flag is true).
   - in: query
     name: page
     schema:
@@ -60,8 +68,6 @@ responses:
             properties:
               username:
                 type: string
-              password: 
-                type: string
               admissionYear:
                 type: integer
                 minimum: 1
@@ -72,50 +78,36 @@ responses:
               email:
                 type: string
                 format: email
-              phoneNumber:
-                type: object
-                properties:
-                  countryCode:
-                    type: number
-                  phoneNumber:
-                    type: number
-                required:
-                  - countryCode
-                  - phoneNumber
-                additionalProperties: false
-              affiliation: 
-                type: object
-                properties:
-                  schoolCompany:
-                    type: string
-                  majorDepartment:
-                    type: string
-                required:
-                  - schoolCompany
-                  - majorDepartment
-                additionalProperties: false
+              verified:
+                type: boolean
+              schoolCompany:
+                type: string
             required:
               - username
-              - password
               - admissionYear
               - legalName
-              - email
+              - verified
             additionalProperties: false
           example:
             - username: gildong123
-              admissionYear: 2015
-              nameKorean: 홍길동
-              nameEnglish: "Gildong Hong"
+              admissionYear: 13
+              legalName: 홍길동
+              nickname: "Gildong Hong"
               email: gildong.hong@example.com
-              phoneNumber:
-                countryCode: 82
-                number: 1012345678
+              verified: true
+              schoolCompany: "Best University"
             - username: gilsoon123
-              admissionYear: 2014
-              nameKorean: 홍길순
-              nameEnglish: "Gilsoon Hong"
-              email: gilsoon.hong@example.com
+              admissionYear: 11
+              legalName: 홍길순
+              verified: false
+              schoolCompany: "A Startup"
+            - username: admin2
+              admissionYear: 8
+              legalName: 김관리
+              email: admin@bshs.or.kr
+              verified: true
+              schoolCompany: "MakeBSSGreatAgain"
   '400':
-    description: Bad requests - User need to recheck the parameters
+    description: Bad requests
   '401':
     description: Authentication information is missing or invalid
