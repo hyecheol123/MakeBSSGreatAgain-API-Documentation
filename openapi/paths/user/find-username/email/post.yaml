@@ -36,7 +36,7 @@ requestBody:
           admissionYear: 13
           maskedUsername: gil*****23
 responses:
-  '201':
+  '200':
     description: Username email successfully requested
   '400':
     description: Bad Request / Suspended User

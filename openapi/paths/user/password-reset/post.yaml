@@ -3,7 +3,11 @@ tags:
 summary: Send password reset link
 operationId: sendPasswordResetLink
 description: |
-  Send password reset link (ticketID) to user's email having matching name, username, email, and admission year information.
+  Send password reset link (ticketID) to user's email having matching legal name, username, email, and admission year information.
+  The information should be provided in the RequestBody.
+  Email can be any verified email.
+
+  The password reset email will be sent to both provided email and primary email.
 requestBody:
   required: true
   content:
@@ -11,7 +15,7 @@ requestBody:
       schema:
         type: object
         properties:
-          name:
+          legalName:
             type: string
           email:
             type: string
@@ -27,14 +31,14 @@ requestBody:
           - admissionYear
           - username
         example:
-          name: 홍길동
+          legalName: 홍길동
           email: gildong.hong@example.com
           admissionYear: 13
           username: gildong123
 responses:
-  '201':
+  '200':
     description: Password reset link has been successfully requested
   '400':
-    description: Bad Request
+    description: Bad Request / Suspended User
   '404':
     description: Cannot find user with provided information

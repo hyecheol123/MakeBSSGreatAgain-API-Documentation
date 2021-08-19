@@ -21,6 +21,7 @@ Details of the Security Schemes are described below.
   - PUT /user/verify-email/{ticketID} completed
   - GET /user/find-username completed
   - POST /user/find-username/email completed
+  - POST /user/password-reset completed
 
 # SecuritySchemes
 <SecurityDefinitions />
