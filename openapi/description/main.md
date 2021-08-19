@@ -18,6 +18,7 @@ Details of the Security Schemes are described below.
   - PUT /user/{username} completed
   - PUT /user/primary-email/{username} completed
   - POST /user/verify-email completed
+  - PUT /user/verify-email/{ticketID} completed
 
 # SecuritySchemes
 <SecurityDefinitions />
