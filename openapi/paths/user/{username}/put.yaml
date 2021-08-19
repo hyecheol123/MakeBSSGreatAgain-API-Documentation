@@ -4,15 +4,18 @@ summary: Update user detail
 operationId: updateUserDetail
 description: |
   Modify user's information.
-  Only the owner of the account can use this API.
+  Only the owner of the account and admin account can use this API.
+  Suspended and deleted users cannot be updated.
 
   This API requires username (provided as path parameter).
   In the RequestBody, the contents to be modified are listed.
-  Once the modification complete, this API will return the user information.
+  User is only allowed to modify nickname, phone number, affiliation, and email.
 
   If the user changed the email, the user need to [verify the new email](#operation/sendEmailVerifyTicket).
   Before the verification, the email will not be used for notification and public contact.
-  If user does not verify the email within 3 days, the email modification will be rolled-back.
+
+  If part of requests failed, the other change requests will be proceed.
+  It will respond with 200, but with "Partially processed" message in the response body.
 security:
   - accessToken: []
 parameters:
@@ -29,7 +32,7 @@ requestBody:
       schema:
         type: object
         properties:
-          nameEnglish:
+          nickname:
             type: string
           phoneNumber:
             type: object
@@ -41,59 +44,54 @@ requestBody:
             required:
               - countryCode
               - number
-          newEmail:
-            type: string
-            format: email
-        example:
-          nameEnglish: "Gildong Hong"
-          newEmail: gildong.hong.new@example.com
-          phoneNumber:
-            countryCode: 82
-            number: 1012345678
-responses:
-  '200':
-    description: Found user information with given username
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            username:
-              type: string
-            email:
-              type: string
-              format: email
-            admissionYear:
-              type: number
-              minimum: 1
-            nameKorean:
-              type: string
-            nameEnglish:
-              type: string
-            phoneNumber:
+            additionalProperties: false
+          affiliation:
+            type: object
+            properties:
+              schoolCompany:
+                type: string
+              majorDepartment:
+                type: string
+            required:
+              - schoolCompany
+              - majorDepartment
+            additionalProperties: false
+          emailChange:
+            type: array
+            minItems: 1
+            uniqueItems: true
+            items:
               type: object
               properties:
-                countryCode:
-                  type: number
-                number:
-                  type: number
+                email:
+                  type: string
+                  format: email
+                requestType:
+                  type: string
+                  pattern: ^(delete|add)$
               required:
-                - countryCode
-                - number
-          required:
-            - nameKorean
-            - nameEnglish
-          example:
-            username: gildong123
-            admissionYear: 13
-            nameKorean: 홍길동
-            nameEnglish: "Gildong Hong"
-            email: gildong.hong@example.com
-            phoneNumber:
-              countryCode: 82
-              number: 1012345678
+                - email
+                - requestType
+              additionalProperties: false
+        additionalProperties: false
+        example:
+          nickname: "New Nickname"
+          phoneNumber:
+            countryCode: 82
+            phoneNumber: 123456789
+          affiliation:
+            schoolCompany: "Best School"
+            majorDepartment: "Best Major"
+          emailChange:
+            - email: "dummy@dummy.com"
+              requestType: "delete"
+            - email: "test@test.com"
+              requestType: "add"
+responses:
+  '200':
+    description: Update Success / Partially Processed
   '400':
-    description: Bad Request
+    description: Bad Request / Suspended User
   '401':
     description: Authentication information is missing or invalid
   '404':
