@@ -3,7 +3,9 @@ tags:
 summary: Find username
 operationId: findUsername
 description: |
-  Find username by using email, name, and admission year.
+  Find username by using email, legal name, and admission year.
+  The information should be provided in the RequestBody.
+  Email can be any verified email
 
   If the user with matching information found, the part of the username (first three and last two characters) will be returned.
 requestBody:
@@ -13,7 +15,7 @@ requestBody:
       schema:
         type: object
         properties:
-          name:
+          legalName:
             type: string
           email:
             type: string
@@ -22,13 +24,13 @@ requestBody:
             type: number
             minimum: 1
         required:
-          - name
+          - legalName
           - email
           - admissionYear
         example:
           name: 홍길동
           email: gildong.hong@example.com
-          admissionYear: 2015
+          admissionYear: 13
 responses:
   '200':
     description: Found user with give information
@@ -47,6 +49,6 @@ responses:
             value:
               username: gil*****23
   '400':
-    description: Bad Request
+    description: Bad Request / Suspended User
   '404':
     description: Cannot find user with provided information
