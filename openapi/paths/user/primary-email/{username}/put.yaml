@@ -1,0 +1,48 @@
+tags:
+  - User
+summary: Update user's primary email
+operationId: updateUserPrimaryEmail
+description: |
+  Modify user's primary email.
+  Able to change existing primary mail to other registered, verified email address.
+  If user want to add new email address as a primary address,
+  the user need to register and verify the email address first.
+
+  Only the owner of the account and admin account can use this API.
+  Suspended and deleted user cannot be updated.
+
+  This API requires username (provided as path parameter).
+  In the RequestBody, the email address which want to be used as a primary email should be provided.
+security:
+  - accessToken: []
+parameters:
+  - name: username
+    in: path
+    description: Username indicating user account. Same as user's login ID.
+    required: true
+    schema:
+      type: string
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          newPrimaryEmail:
+            type: string
+            format: email
+        additionalProperties: false
+        required:
+          - newPrimaryEmail
+        example:
+          newPrimaryEmail: admin@bshs.or.kr
+responses:
+  '200':
+    description: Update Success
+  '400':
+    description: Bad Request / Suspended User
+  '401':
+    description: Authentication information is missing or invalid
+  '404':
+    description: Cannot find the username
