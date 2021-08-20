@@ -14,7 +14,8 @@ Details of the Security Schemes are described below.
 - User API
   - POST /user Completed
   - GET /user completed
-  - PUT /user/admin/{username} completed
+  - POST /user/admin/{username} completed
+  - DELETE /user/admin/{username} completed
   - GET /user/{username} completed
   - PUT /user/{username} completed
   - PUT /user/primary-email/{username} completed

@@ -21,7 +21,7 @@ responses:
   '200':
     description: Successfully granted admin privilege
   '400':
-    description: Suspended User
+    description: Already Admin / Suspended User
   '401':
     description: Authentication information is missing or invalid
   '404':

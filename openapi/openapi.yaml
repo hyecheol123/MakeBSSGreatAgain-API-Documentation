@@ -58,8 +58,10 @@ paths:
     put: # Update user information
       $ref: paths/user/{username}/put.yaml
   /user/admin/{username}:
-    put: # Grant User Admin Privilege
-      $ref: paths/user/admin/{username}/put.yaml
+    post: # Grant User Admin Privilege
+      $ref: paths/user/admin/{username}/post.yaml
+    delete: # Revoke User Admin Privilege
+      $ref: paths/user/admin/{username}/delete.yaml
   /user/primary-email/{username}:
     put: # Update primary email
       $ref: paths/user/primary-email/{username}/put.yaml

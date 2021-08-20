@@ -1,0 +1,27 @@
+tags:
+  - User
+summary: Revoke User Admin Privilege
+operationId: revokeAdminPrivilege
+description: |
+  Revoke admin privilege from existing admin user.
+  Only admin user can call this API.
+
+  This API requires username (provided as path parameter).
+security:
+  - accessToken: []
+parameters:
+  - name: username
+    in: path
+    description: Username indicating user account. Same as user's login ID.
+    required: true
+    schema:
+      type: string
+responses:
+  '200':
+    description: Successfully revoked admin privilege
+  '400':
+    description: Not admin / Suspended User
+  '401':
+    description: Authentication information is missing or invalid
+  '404':
+    description: Cannot find the username
