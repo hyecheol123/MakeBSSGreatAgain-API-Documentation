@@ -57,6 +57,9 @@ paths:
       $ref: paths/user/{username}/get.yaml
     put: # Update user information
       $ref: paths/user/{username}/put.yaml
+  /user/admin/{username}:
+    put: # Grant User Admin Privilege
+      $ref: paths/user/admin/{username}/put.yaml
   /user/primary-email/{username}:
     put: # Update primary email
       $ref: paths/user/primary-email/{username}/put.yaml
