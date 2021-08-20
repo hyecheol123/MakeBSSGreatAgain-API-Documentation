@@ -1,12 +1,17 @@
 tags:
   - User
-summary: report fake/spam user to admin
+summary: Report fake/spam user to admin
 operationId: reportUser
 description: |
   Users can report other fake/spam user to admin.
   They need to provide proper reasons why they think the other user is harmful or fake/spam account.
+  In the RequestBody, user needs to submit reason and optional additionalComment.
+  The target username should be provided as path parameter.
 
   If the number of report counts spikes, the reported user is temporarily lost access to the website during investigation.
+
+  Each report has three condition: approved, rejected, waiting.
+  Once report submitted, it becomes waiting status indicating admins are investigating the case.
 security:
   - accessToken: []
 parameters:
@@ -33,10 +38,10 @@ requestBody:
           reason: "fake news"
           additionalComment: "This information contains fake and dangerous information, which has been confirmed by the authorities."
 responses:
-  '201':
+  '200':
     description: Successfully reported the user.
   '400':
-    description: Already Reported the user.
+    description: Bad Request / Suspended User / Already Reported the user
   '401':
     description: Authentication information is missing or invalid
   '404':
