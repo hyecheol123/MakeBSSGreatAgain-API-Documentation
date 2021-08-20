@@ -57,14 +57,15 @@ paths:
       $ref: paths/user/{username}/get.yaml
     put: # Update user information
       $ref: paths/user/{username}/put.yaml
+  /user/primary-email/{username}:
+    put: # Update primary email
+      $ref: paths/user/primary-email/{username}/put.yaml
   /user/admin/{username}:
     post: # Grant User Admin Privilege
       $ref: paths/user/admin/{username}/post.yaml
     delete: # Revoke User Admin Privilege
       $ref: paths/user/admin/{username}/delete.yaml
-  /user/primary-email/{username}:
-    put: # Update primary email
-      $ref: paths/user/primary-email/{username}/put.yaml
+  # TODOs - Block / Unblock / Delete User
   /user/verify-email:
     post: # Create verification ticket
       $ref: paths/user/verify-email/post.yaml
@@ -86,6 +87,8 @@ paths:
   /user/report/{username}:
     post: # Report fake/spam user to admin
       $ref: paths/user/report/{username}/post.yaml
+  # TODOs - Reject/Approve Report
+  # TODOs - Fix existing APIs
   /user/promote:
     get: # get instant-promote challenges
       $ref: paths/user/promote/get.yaml
