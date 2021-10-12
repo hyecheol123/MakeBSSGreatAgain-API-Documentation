@@ -7,7 +7,7 @@
   "license": "BSD-3-Clause",
   "keywords": [],
   "dependencies": {
-    "@redocly/openapi-cli": "^1.0.0-beta.54",
+    "@redocly/openapi-cli": "^1.0.0-beta.59",
     "redoc-cli": "^0.12.2"
   },
   "private": true,
